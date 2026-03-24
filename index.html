@@ -8,15 +8,20 @@
     <style>
         :root {
             --celeste: #75AADB;
-            --celeste-oscuro: #5B9CC5;
-            --celeste-claro: #A8CCE8;
+            --celeste-oscuro: #4A8EC2;
+            --celeste-claro: #D6E8F7;
+            --celeste-muy-claro: #EEF6FC;
             --blanco: #FFFFFF;
             --verde-natural: #4A7C59;
-            --verde-claro: #8FBC8F;
+            --verde-claro: #6B9B7A;
+            --verde-muy-claro: #E8F2EC;
             --azul-oceano: #1E3A5F;
             --azul-profundo: #0D2137;
             --gris-texto: #2C3E50;
-            --gris-suave: #F0F4F8;
+            --gris-medio: #5D6D7E;
+            --gris-suave: #F4F7FA;
+            --sombra: 0 4px 20px rgba(0,0,0,0.08);
+            --sombra-hover: 0 8px 30px rgba(0,0,0,0.12);
         }
 
         * {
@@ -31,7 +36,7 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: var(--blanco);
+            background-color: var(--gris-suave);
             color: var(--gris-texto);
             line-height: 1.7;
         }
@@ -42,11 +47,11 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 0.8rem 2rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
         }
 
         nav .nav-content {
@@ -59,7 +64,7 @@
 
         nav .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--azul-oceano);
             font-weight: 700;
         }
@@ -71,16 +76,16 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 0.5rem;
+            gap: 0.3rem;
             flex-wrap: wrap;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--gris-texto);
+            color: var(--gris-medio);
             font-size: 0.85rem;
             font-weight: 600;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.9rem;
             border-radius: 25px;
             transition: all 0.3s ease;
         }
@@ -93,7 +98,7 @@
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-oceano) 50%, var(--celeste-oscuro) 100%);
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-oceano) 60%, var(--celeste-oscuro) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -110,8 +115,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
-            background-size: cover;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--gris-suave), transparent);
         }
 
         .hero-content {
@@ -122,22 +136,24 @@
 
         .hero-badge {
             display: inline-block;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.12);
             color: var(--celeste-claro);
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.8rem;
             border-radius: 30px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.15);
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--blanco);
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.2);
         }
 
         .hero h1 span {
@@ -145,27 +161,12 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 2.5rem;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 3rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .hero-flags {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .flag-icon {
-            width: 80px;
-            height: 50px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         .hero-buttons {
@@ -179,7 +180,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2rem;
+            padding: 1rem 2.2rem;
             border-radius: 50px;
             font-weight: 700;
             font-size: 1rem;
@@ -192,43 +193,45 @@
         .btn-primary {
             background: var(--celeste);
             color: var(--blanco);
-            box-shadow: 0 4px 15px rgba(117, 170, 219, 0.4);
+            box-shadow: 0 4px 20px rgba(117, 170, 219, 0.4);
         }
 
         .btn-primary:hover {
             background: var(--celeste-oscuro);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(117, 170, 219, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(117, 170, 219, 0.5);
         }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.1);
             color: var(--blanco);
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.2);
         }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            z-index: 2;
         }
 
         .scroll-indicator svg {
-            width: 30px;
-            height: 30px;
-            fill: rgba(255,255,255,0.5);
+            width: 32px;
+            height: 32px;
+            fill: rgba(255,255,255,0.6);
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
+            40% { transform: translateX(-50%) translateY(-12px); }
+            60% { transform: translateX(-50%) translateY(-6px); }
         }
 
         /* Secciones */
@@ -243,19 +246,20 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-number {
             display: inline-block;
-            background: var(--celeste);
+            background: linear-gradient(135deg, var(--celeste) 0%, var(--celeste-oscuro) 100%);
             color: var(--blanco);
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            line-height: 40px;
+            line-height: 50px;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 15px rgba(117, 170, 219, 0.3);
         }
 
         .section-title {
@@ -266,106 +270,238 @@
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1.15rem;
+            color: var(--gris-medio);
             max-width: 700px;
             margin: 0 auto;
         }
 
         /* Ubicación Geográfica */
         .geo-section {
-            background: linear-gradient(180deg, var(--gris-suave) 0%, var(--blanco) 100%);
+            background: var(--blanco);
         }
 
         .geo-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
         }
 
         .geo-map {
-            background: var(--azul-oceano);
-            border-radius: 20px;
+            background: linear-gradient(135deg, var(--azul-oceano) 0%, var(--azul-profundo) 100%);
+            border-radius: 24px;
             padding: 2rem;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--sombra-hover);
         }
 
         .geo-map::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Ccircle cx='400' cy='300' r='250' fill='none' stroke='%2375AADB' stroke-width='1' opacity='0.3'/%3E%3Ccircle cx='400' cy='300' r='200' fill='none' stroke='%2375AADB' stroke-width='1' opacity='0.3'/%3E%3Ccircle cx='400' cy='300' r='150' fill='none' stroke='%2375AADB' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E") center/cover;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(117,170,219,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
         }
 
         .map-placeholder {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 3rem;
-            text-align: center;
             position: relative;
             z-index: 1;
         }
 
-        .map-placeholder svg {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 1rem;
+        .map-placeholder img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
         .map-placeholder p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
-        }
-
-        .geo-info {
-            padding: 1rem;
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+            margin-top: 1.2rem;
+            text-align: center;
         }
 
         .geo-info h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--azul-oceano);
             margin-bottom: 1.5rem;
         }
 
         .geo-info p {
             margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            color: var(--gris-medio);
         }
 
         .geo-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .stat-card {
-            background: var(--blanco);
-            padding: 1.5rem;
-            border-radius: 15px;
+            background: var(--celeste-muy-claro);
+            padding: 1.8rem 1rem;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .stat-card:hover {
+            border-color: var(--celeste);
             transform: translateY(-5px);
+            box-shadow: var(--sombra);
         }
 
         .stat-card .number {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            color: var(--celeste);
+            color: var(--celeste-oscuro);
         }
 
         .stat-card .label {
-            font-size: 0.85rem;
-            color: #666;
+            font-size: 0.9rem;
+            color: var(--gris-medio);
+            margin-top: 0.3rem;
+        }
+
+        /* Conociendo las islas */
+        .conociendo-section {
+            background: linear-gradient(180deg, var(--blanco) 0%, var(--celeste-muy-claro) 100%);
+        }
+
+        .conociendo-intro {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .conociendo-intro p {
+            font-size: 1.15rem;
+            color: var(--gris-medio);
+            line-height: 1.9;
+        }
+
+        .islands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .island-card {
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 1rem;
+        }
+
+        .island-card .island-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .island-card .island-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .island-card .island-content {
+            padding: 1.5rem;
+        }
+
+        .island-card .island-content h3 {
+            color: var(--azul-oceano);
+            margin-bottom: 0.5rem;
+        }
+
+        .island-card .island-content p {
+            color: var(--gris-medio);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .island-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .island-card-header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 1px solid var(--gris-suave);
+        }
+
+        .island-card-header .icon {
+            font-size: 2.5rem;
+        }
+
+        .island-card-header h3 {
+            font-size: 1.2rem;
+            color: var(--azul-oceano);
+            flex: 1;
+        }
+
+        .island-card-header .arrow {
+            color: var(--celeste);
+            transition: transform 0.3s ease;
+        }
+
+        .island-card.expanded .arrow {
+            transform: rotate(180deg);
+        }
+
+        .island-card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .island-card-content-inner {
+            padding: 1.5rem 2rem 2rem;
+            color: var(--gris-medio);
+        }
+
+        .island-card-content-inner p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .island-card-content-inner strong {
+            color: var(--azul-oceano);
+        }
+
+        .conociendo-footer {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            text-align: center;
+            background: var(--celeste-claro);
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .conociendo-footer p {
+            color: var(--azul-oceano);
+            font-style: italic;
+            font-size: 1rem;
         }
 
         /* Acordeón */
@@ -373,11 +509,11 @@
             background: var(--blanco);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: var(--sombra);
         }
 
         .accordion-item {
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--gris-suave);
         }
 
         .accordion-item:last-child {
@@ -397,7 +533,7 @@
             font-size: 1.1rem;
             font-weight: 700;
             color: var(--azul-oceano);
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .accordion-header:hover {
@@ -405,13 +541,14 @@
         }
 
         .accordion-header.active {
-            background: var(--celeste-claro);
+            background: var(--celeste-muy-claro);
         }
 
         .accordion-icon {
             width: 24px;
             height: 24px;
             transition: transform 0.3s ease;
+            color: var(--celeste);
         }
 
         .accordion-header.active .accordion-icon {
@@ -425,30 +562,74 @@
         }
 
         .accordion-content-inner {
-            padding: 1.5rem 2rem 2rem;
-            color: #555;
-            line-height: 1.8;
+            padding: 2rem;
+            color: var(--gris-medio);
+            line-height: 1.9;
+        }
+
+        .accordion-content-inner p {
+            margin-bottom: 1rem;
+        }
+
+        .accordion-content-inner h4 {
+            color: var(--azul-oceano);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.1rem;
+        }
+
+        #historia-ampliada h4 {
+            margin: 0.5rem 0 0.5rem;
+        }
+
+        .accordion-content-inner ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .accordion-content-inner li {
+            margin-bottom: 0.5rem;
         }
 
         /* Argumentos */
         .argumentos-section {
-            background: linear-gradient(180deg, var(--blanco) 0%, var(--celeste-claro) 100%);
+            background: linear-gradient(180deg, var(--blanco) 0%, var(--celeste-muy-claro) 100%);
         }
 
         .argumentos-intro {
             text-align: center;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto 3rem;
         }
 
         .argumentos-intro p {
-            font-size: 1.15rem;
-            color: #555;
+            font-size: 1.2rem;
+            color: var(--gris-medio);
+        }
+
+        .btn-leer-mas {
+            background: var(--celeste);
+            color: var(--blanco);
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+margin-top: 0.5rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-leer-mas:hover {
+            background: var(--celeste-oscuro);
+            transform: translateY(-2px);
         }
 
         /* Soberanía */
         .soberania-section {
-            background: var(--azul-oceano);
+            background: linear-gradient(135deg, var(--azul-oceano) 0%, var(--azul-profundo) 100%);
             color: var(--blanco);
         }
 
@@ -456,33 +637,43 @@
             color: var(--blanco);
         }
 
+        .soberania-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
         .soberania-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .soberania-text p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 1.5rem;
             opacity: 0.9;
+            color: rgba(255,255,255,0.85);
         }
 
         .soberania-quote {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
+            background: rgba(255,255,255,0.08);
+            padding: 2.5rem;
+            border-radius: 20px;
             border-left: 4px solid var(--celeste);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .soberania-quote p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-style: italic;
+            color: rgba(255,255,255,0.95);
+            text-align: center;
         }
 
         /* Timeline */
         .timeline-section {
-            background: var(--gris-suave);
+            background: var(--blanco);
         }
 
         .timeline {
@@ -498,14 +689,14 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: var(--celeste);
+            background: linear-gradient(to bottom, var(--celeste), var(--celeste-oscuro));
             transform: translateX(-50%);
             border-radius: 2px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -520,14 +711,151 @@
         }
 
         .timeline-content {
-            background: var(--blanco);
+            background: var(--gris-suave);
             padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            box-shadow: var(--sombra);
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
         }
 
         .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 24px;
+            height: 24px;
+            background: var(--celeste);
+            border: 4px solid var(--blanco);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 10px rgba(117,170,219,0.4);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -3.5rem;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -3.5rem;
+        }
+
+        .timeline-year {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--celeste-oscuro);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--gris-medio);
+            font-size: 1rem;
+        }
+
+        /* Galería */
+        .galeria-section {
+            background: linear-gradient(180deg, var(--gris-suave) 0%, var(--blanco) 100%);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .galeria-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Timeline Guerra */
+        .timeline-war {
+            position: relative;
+            max-width: 800px;
+            margin: 1rem auto;
+        }
+
+        .timeline-war::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--celeste), var(--azul-oceano));
+            border-radius: 2px;
+            transform: translateX(-50%);
+        }
+
+        .timeline-war-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            width: 50%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-war-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--celeste);
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .timeline-war-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-war-content {
+            background: var(--blanco);
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+            flex: 1;
+        }
+
+        .timeline-war-date {
+            font-weight: 700;
+            color: var(--celeste-oscuro);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-war-text {
+            color: var(--gris-oscuro);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .timeline-war-item::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -536,58 +864,110 @@
             background: var(--celeste);
             border: 4px solid var(--blanco);
             border-radius: 50%;
+            z-index: 1;
             transform: translateY(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -3.2rem;
+        .timeline-left {
+            margin-left: 0;
+            padding-right: 2rem;
+            justify-content: flex-end;
         }
 
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -3.2rem;
+        .timeline-left .timeline-war-img {
+            margin-left: 1.2rem;
+            order: 2;
         }
 
-        .timeline-year {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--celeste);
-            margin-bottom: 0.5rem;
+        .timeline-left .timeline-war-content {
+            order: 1;
         }
 
-        .timeline-text {
-            color: #555;
-            font-size: 0.95rem;
+        .timeline-left::before {
+            right: -12px;
         }
 
-        /* Galería */
-        .galeria-section {
-            background: var(--blanco);
+        .timeline-right {
+            margin-left: 50%;
+            padding-left: 2rem;
+            justify-content: flex-start;
         }
 
-        .galeria-grid {
+        .timeline-right .timeline-war-img {
+            margin-right: 1.2rem;
+            order: 1;
+        }
+
+        .timeline-right .timeline-war-content {
+            order: 2;
+        }
+
+        .timeline-right::before {
+            left: -12px;
+        }
+
+        .timeline-war-end::before {
+            background: #e63946;
+            width: 28px;
+            height: 28px;
+            border: 5px solid var(--blanco);
+        }
+
+        .timeline-war-end .timeline-war-content {
+            background: linear-gradient(135deg, #e63946, #c1121f);
+            color: white;
+        }
+
+        .timeline-war-end .timeline-war-date {
+            color: white;
+        }
+
+        .timeline-war-end .timeline-war-text {
+            color: rgba(255,255,255,0.95);
+        }
+
+        .timeline-war-end .timeline-war-img {
+            border-color: #e63946;
+        }
+
+        .timeline-war-success .timeline-war-content {
+            border-left: 4px solid #2d6a4f;
+        }
+
+        .timeline-war-danger .timeline-war-content {
+            border-right: 4px solid #e63946;
+        }
+
+        .consecuencias-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
+            margin: 1.5rem 0;
         }
 
-        .galeria-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        .consecuencia-card {
+            background: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            text-align: center;
         }
 
-        .galeria-item:hover {
-            transform: scale(1.02);
+        .consecuencia-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .galeria-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .consecuencia-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .consecuencia-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gris-suave);
         }
 
         /* Lightbox */
@@ -598,7 +978,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.92);
             z-index: 9999;
             justify-content: center;
             align-items: center;
@@ -612,18 +992,19 @@
         .lightbox img {
             max-width: 90%;
             max-height: 90vh;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
         .lightbox-close {
             position: absolute;
-            top: 20px;
-            right: 30px;
+            top: 25px;
+            right: 35px;
             font-size: 3rem;
             color: white;
             cursor: pointer;
             line-height: 1;
+            transition: color 0.3s ease;
         }
 
         .lightbox-close:hover {
@@ -636,23 +1017,23 @@
             left: 0;
             right: 0;
             background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 1.5rem 1rem 1rem;
+            padding: 2rem 1.5rem 1.2rem;
         }
 
         .galeria-overlay span {
             color: var(--blanco);
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
         }
 
         /* Guerra */
         .guerra-section {
-            background: linear-gradient(180deg, var(--blanco) 0%, var(--gris-suave) 100%);
+            background: var(--blanco);
         }
 
         /* Combatientes */
         .combatientes-section {
-            background: var(--celeste-oscuro);
+            background: linear-gradient(135deg, var(--celeste-oscuro) 0%, var(--azul-oceano) 100%);
             color: var(--blanco);
         }
 
@@ -660,39 +1041,206 @@
             color: var(--blanco);
         }
 
+        .combatientes-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .combatientes-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
         .combatientes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .combatiente-card {
             background: rgba(255,255,255,0.1);
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 20px;
             text-align: center;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
         }
 
-        .combatiente-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .combatiente-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .combatiente-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
         }
 
         .combatiente-card h4 {
             font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
         }
 
         .combatiente-card p {
-            opacity: 0.8;
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        /* Héroes */
+        .heroes-section {
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-oceano) 100%);
+            color: var(--blanco);
+        }
+
+        .heroes-section .section-title {
+            color: var(--blanco);
+        }
+
+        .heroes-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .heroes-accordion {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .heroes-accordion .accordion-header {
+            color: var(--blanco);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .heroes-accordion .accordion-header:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .heroes-accordion .accordion-header.active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .heroes-content {
+            background: var(--blanco);
+            color: var(--gris-texto);
+        }
+
+        .heroes-content-inner {
+            padding: 2rem;
+        }
+
+        .heroes-images {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .heroes-images img {
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+        }
+
+        .heroes-text h3 {
+            color: var(--azul-oceano);
+            margin-bottom: 1rem;
+        }
+
+        .heroes-text p {
+            color: var(--gris-medio);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .heroes-quote {
+            background: var(--celeste-muy-claro);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--celeste);
+            margin: 1.5rem 0;
+        }
+
+        .heroes-quote p {
+            font-style: italic;
+            color: var(--azul-oceano);
+        }
+
+        .heroes-quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--gris-medio);
+        }
+
+        .heroes-carta {
+            background: var(--gris-suave);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .heroes-carta h4 {
+            color: var(--azul-oceano);
+            margin-bottom: 1.2rem;
+        }
+
+        .heroes-carta-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .heroes-carta-content img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+        }
+
+        .heroes-carta-content p {
+            font-style: italic;
+            line-height: 1.9;
             font-size: 0.95rem;
         }
 
         /* Recursos */
         .recursos-section {
             background: var(--blanco);
+        }
+
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            background: var(--gris-suave);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+
+        .video-card h4 {
+            padding: 1.2rem 1.5rem;
+            color: var(--azul-oceano);
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
         }
 
         /* Estrategia */
@@ -705,18 +1253,34 @@
             color: var(--blanco);
         }
 
+        .estrategia-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .estrategia-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+
         .estrategia-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
         }
 
         .estrategia-card {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .estrategia-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
         }
 
         .estrategia-card h4 {
@@ -726,17 +1290,55 @@
         }
 
         .estrategia-card p {
-            opacity: 0.8;
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        .estrategia-card ul {
+            margin: 0.8rem 0;
+            padding-left: 1.3rem;
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        .estrategia-card li {
+            margin-bottom: 0.3rem;
         }
 
         /* Antártida */
         .antartida-section {
-            background: linear-gradient(180deg, var(--gris-suave) 0%, var(--blanco) 100%);
+            background: var(--blanco);
+        }
+
+        .antartida-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .antartida-content > p {
+            font-size: 1.15rem;
+            color: var(--gris-medio);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .antartida-box {
+            background: linear-gradient(135deg, var(--celeste-claro) 0%, var(--celeste-muy-claro) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .antartida-box p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--azul-oceano);
         }
 
         /* Memoria */
         .memoria-section {
-            background: var(--verde-natural);
+            background: linear-gradient(135deg, var(--verde-natural) 0%, var(--verde-claro) 100%);
             color: var(--blanco);
         }
 
@@ -744,9 +1346,37 @@
             color: var(--blanco);
         }
 
+        .memoria-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .memoria-content {
+            max-width: 850px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .memoria-content > p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .memoria-box {
+            background: rgba(255,255,255,0.15);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .memoria-box p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
         /* Ideas clave */
         .ideas-section {
-            background: var(--azul-oceano);
+            background: linear-gradient(135deg, var(--azul-oceano) 0%, var(--azul-profundo) 100%);
             color: var(--blanco);
         }
 
@@ -754,36 +1384,57 @@
             color: var(--blanco);
         }
 
+        .ideas-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
         .ideas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
 
         .idea-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: 15px;
+            background: rgba(255,255,255,0.08);
+            padding: 2rem;
+            border-radius: 16px;
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             align-items: flex-start;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .idea-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
         }
 
         .idea-card .idea-icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
         }
 
         .idea-card p {
             opacity: 0.9;
-            font-size: 0.95rem;
+            font-size: 1rem;
+        }
+
+        .ideas-conclusion {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .ideas-conclusion p {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--celeste);
         }
 
         /* Footer */
         footer {
             background: var(--azul-profundo);
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.6);
             padding: 3rem 2rem;
             text-align: center;
         }
@@ -795,6 +1446,7 @@
         footer .esrn {
             color: var(--celeste-claro);
             font-weight: 600;
+            font-size: 1.1rem;
         }
 
         /* Responsive */
@@ -804,23 +1456,45 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
 
             .geo-content,
-            .soberania-content {
+            .soberania-content,
+            .recursos-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
+            }
+
+            .geo-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.2rem 0.5rem;
+            }
+
+            .stat-card .number {
+                font-size: 1.6rem;
             }
 
             .timeline::before {
-                left: 20px;
+                left: 15px;
             }
 
             .timeline-item {
                 grid-template-columns: 1fr;
                 gap: 0;
-                padding-left: 50px;
+                padding-left: 45px;
             }
 
             .timeline-item:nth-child(odd) .timeline-content,
@@ -830,7 +1504,15 @@
             }
 
             .timeline-content::before {
-                left: -2.3rem !important;
+                left: -2.5rem !important;
+            }
+
+            .heroes-carta-content {
+                grid-template-columns: 1fr;
+            }
+
+            .heroes-images {
+                justify-content: center;
             }
         }
 
@@ -873,10 +1555,6 @@
             <span class="hero-badge">Área: Educación Científica y Tecnológica</span>
             <h1>Las <span>Islas Malvinas</span></h1>
             <p>Historia, soberanía, memoria y territorio. Un recorrido por la cuestión Malvinas, un tema fundamental para comprender la Argentina.</p>
-            <div class="hero-flags">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/200px-Flag_of_Argentina.svg.png" alt="Bandera Argentina" class="flag-icon">
-                <img src="images/mapicon.png" alt="Mapa Malvinas" class="flag-icon">
-            </div>
             <div class="hero-buttons">
                 <a href="#geografia" class="btn btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
@@ -884,6 +1562,9 @@
                 </a>
                 <a href="#ideas" class="btn btn-secondary">Ideas clave</a>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
         </div>
     </section>
 
@@ -898,7 +1579,7 @@
             <div class="geo-content">
                 <div class="geo-map fade-in">
                     <div class="map-placeholder">
-                        <img src="images/mapamalvinas.png" alt="Mapa de Malvinas" style="width: 100%; height: auto; border-radius: 10px;">
+                        <img src="images/mapamalvinas.png" alt="Mapa de Malvinas">
                         <p>Mapa del Atlántico Sur<br><small>Islas Malvinas, Georgias y Sandwich del Sur</small></p>
                     </div>
                 </div>
@@ -915,9 +1596,194 @@
                             <div class="number">500</div>
                             <div class="label">km de Argentina</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="number">4</div>
-                            <div class="label">islas principales</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿De qué hablamos cuando hablamos de Malvinas? -->
+    <section class="conociendo-section" id="hablamos">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">2</span>
+                <h2 class="section-title">¿De qué hablamos cuando hablamos de Malvinas?</h2>
+            </div>
+            <div class="conociendo-intro fade-in">
+                <p>Cuando hablamos de la cuestión Malvinas, no nos referimos solo a un territorio insular, sino a un conjunto de islas, espacios marítimos y recursos que Argentina reclama como propios. El reclamo soberano argentino abarca tres archipiélagos del Atlántico Sur, todos ellos ilegalmente ocupados por el Reino Unido.</p>
+            </div>
+            <div class="islands-grid fade-in">
+                <div class="island-card">
+                    <div class="island-image">
+                        <img src="images/satelital.png" alt="Islas Malvinas">
+                    </div>
+                    <div class="island-content">
+                        <h3>Islas Malvinas</h3>
+                        <p>El archipiélago principal, compuesto por las islas Soledad y Gran Malvina, junto a más de 200 islotes. Superficie: 15.800 km². Son las más conocidas y el centro del reclamo diplomático argentino.</p>
+                    </div>
+                </div>
+                <div class="island-card">
+                    <div class="island-image">
+                        <img src="images/islasgeorgias.jpg" alt="Georgias del Sur">
+                    </div>
+                    <div class="island-content">
+                        <h3>Georgias del Sur</h3>
+                        <p>Archipiélago de unas 15 islas ubicado a 1.400 km al sureste de Malvinas. Importante base de recursos pesqueros y biodiversidad marina. Argentina las considera parte de Tierra del Fuego.</p>
+                    </div>
+                </div>
+                <div class="island-card">
+                    <div class="island-image">
+                        <img src="images/islas sandwich.png" alt="Islas Sandwich del Sur">
+                    </div>
+                    <div class="island-content">
+                        <h3>Islas Sandwich del Sur</h3>
+                        <p>Pequeño archipiélago volcánico y subantártico ubicado a 750 km de Georgias del Sur. Incluye las islas Zavodovski, Saunders, Montagu, entre otras. Área de gran valor estratégico.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fauna y Flora -->
+    <section class="fauna-section" id="faunayflora">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">3</span>
+                <h2 class="section-title">Fauna y Flora de las Malvinas</h2>
+                <p class="section-subtitle">Un ecosistema único en el Atlántico Sur</p>
+            </div>
+            
+            <div class="accordion fade-in">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>🌡️ El Escenario Natural: Clima y Ubicación</span>
+                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+                                <div style="flex: 1; min-width: 280px;">
+                                    <p>Las Islas Malvinas se encuentran en el Océano Atlántico Sur, a unos 500 km de la Patagonia argentina. El archipiélago, compuesto por las islas Soledad y Gran Malvina junto a más de 200 islotes, posee una superficie de 15.800 km².</p>
+                                    <p>Su clima se define como inhóspito e inestable: es marcadamente frío, ventoso y con lluvias constantes durante casi todo el año. Las temperaturas oscilan en un rango estrecho entre los 5°C y 18°C, condiciones que han moldeado una biota muy específica, donde los organismos poseen una relación directa y dependiente del mar y la zona costera.</p>
+                                </div>
+                                <img src="images/climamalvinas.png" alt="Clima de Malvinas" style="width: 400px; border-radius: 15px; flex-shrink: 0;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>🦅 La Fauna de nuestras islas</span>
+                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Due a la rigurosidad climática, la fauna terrestre es escasa. Históricamente, el único mamífero terrestre autóctono fue el Zorro de las Malvinas (Guará), el cual lamentable se extinguió en el siglo XIX. Sin embargo, la vida estalla en las costas y el mar circundante:</p>
+                            
+                            <h4>Aves: Las Dueñas del Aire y la Costa</h4>
+                            <div class="fauna-gallery">
+                                <div class="fauna-item">
+                                    <img src="images/pinguinopenachoamarillo.jpg" alt="Pingüino de Penacho Amarillo">
+                                    <p><strong>Pingüino de Penacho Amarillo:</strong> Es el más pequeño de los pingüinos crestados (55 cm). Se distingue por sus cejas amarillas y ojos rojos. Actualmente es una especie vulnerable.</p>
+                                </div>
+                                <div class="fauna-item">
+                                    <img src="images/carancho negro.jpg" alt="Carancho Negro">
+                                    <p><strong>Carancho Negro:</strong> Ave carroñera agresiva y voraz de unos 60 cm. Habita exclusivamente el extremo austral de Sudamérica.</p>
+                                </div>
+                                <div class="fauna-item">
+                                    <img src="images/pegalopardo.JPG" alt="Págalo Pardo">
+                                    <p><strong>Págalo Pardo (Skúa Grande):</strong> Un gran depredador marino con una envergadura de 1,5 metros. Es oportunista y suele robar presas a otras aves.</p>
+                                </div>
+                            </div>
+                            
+                            <h4>Gigantes del Mar y Fauna Ictícola</h4>
+                            <div class="fauna-gallery">
+                                <div class="fauna-item">
+                                    <img src="images/ballena franca austral.jpg" alt="Ballena Franca Austral">
+                                    <p><strong>Ballena Franca Austral:</strong> Un coloso de 40 toneladas y 15 metros de largo, caracterizado por las callosidades en su cabeza.</p>
+                                </div>
+                                <div class="fauna-item">
+                                    <img src="images/ballena azul.jpg" alt="Ballena Azul">
+                                    <p><strong>Otros cetáceos:</strong> Orcas, ballenas azules y jorobadas.</p>
+                                </div>
+                                <div class="fauna-item">
+                                    <img src="images/Elefantes y lobos marinos..jpeg" alt="Pinnípedos">
+                                    <p><strong>Pinnípedos:</strong> Elefantes y lobos marinas.</p>
+                                </div>
+                                <div class="fauna-item">
+                                    <img src="images/icticola.jpg" alt="Fauna Ictícola">
+                                    <p><strong>Fauna ictícola:</strong> Merluza de cola, abadejo, pez raya, ostras y almejas.</p>
+                                </div>
+                            </div>
+                            <div class="video-grid" style="margin-top: 1.5rem; max-width: 650px; margin: 1.5rem auto 0;">
+                                <div class="video-card">
+                                    <video controls>
+                                        <source src="images/La Fauna de Malvinas - Museo Malvinas e Islas del Atlántico Sur (720p, h264).mp4#t=7" type="video/mp4">
+                                        Tu navegador no soporta el video.
+                                    </video>
+                                    <h4>La Fauna de Malvinas</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>🌿 La Flora de nuestras islas</span>
+                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>La vegetación de las islas es característica de la estepa, donde la ausencia de árboles es casi total debido a los fuertes vientos y el frío. Las plantas han evolucionado hacia formas bajas, duras y resistentes.</p>
+                            
+                            <div class="flora-grid">
+                                <div class="flora-card">
+                                    <img src="images/pastotussoc.jpg" alt="Pasto Tussock">
+                                    <h4>Pasto Tussock</h4>
+                                    <p>Es la planta más emblemática. Esta gramínea puede superar los 2 metros de altura y forma densas matas que sirven de refugio vital para pingüinos y lobos marina. Además, es una fuente principal de alimento para el ganado.</p>
+                                </div>
+                                <div class="flora-card">
+                                    <img src="images/fictoplancton.png" alt="Fitoplancton">
+                                    <h4>Fitoplancton</h4>
+                                    <p>Aunque microscópico, es el pilar de toda la vida en las islas. Formado por algas y bacterias, constituye la base de la cadena alimentaria marina.</p>
+                                </div>
+                                <div class="flora-card">
+                                    <img src="images/balsamopantano.jpg" alt="Bálsamo de los Pantanos">
+                                    <h4>Bálsamo de los Pantanos</h4>
+                                    <p>También llamada "planta de barniz", crece formando grandes montículos redondos similares a almohadones, una forma de crecimiento que la protege de los vientos desecantes.</p>
+                                </div>
+                                <div class="flora-card">
+                                    <img src="images/veronica.png" alt="Verónica">
+                                    <h4>Verónica</h4>
+                                    <p>Género de arbustos que aporta color al paisaje con sus flores moradas y lilas, adaptándose con formas redondeadas o espigadas según la especie.</p>
+                                </div>
+                            </div>
+                            <div class="video-grid" style="margin-top: 1.5rem; max-width: 650px; margin: 1.5rem auto 0;">
+                                <div class="video-card">
+                                    <video controls>
+                                        <source src="images/Geografía y Flora de Malvinas - Museo Malvinas e Islas del Atlántico Sur (720p, h264).mp4" type="video/mp4">
+                                        Tu navegador no soporta el video.
+                                    </video>
+                                    <h4>Geografía y Flora de Malvinas</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>🌍 El Valor del Ecosistema</span>
+                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>La conjunción de estas especies forma turberas, ecosistemas de musgos y líquenes que almacenan carbono y regulan el agua. Este equilibrio biológico es el que fundamenta la necesidad de un turismo sostenible, que respete las distancias con la fauna y no altere el frágil suelo de las islas.</p>
+                            <div class="soberania-box">
+                                <p><strong>RECORDÁ</strong> que la soberanía de este territorio está bajo el reclamo permanente de Argentina ante las Naciones Unidas, considerando la ocupación británica como una situación colonial que afecta no solo la tierra, sino la gestión de toda esta riqueza natural.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -929,52 +1795,119 @@
     <section class="argumentos-section" id="argumentos">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-number">2</span>
+                <span class="section-number">4</span>
                 <h2 class="section-title">¿Por qué las Malvinas son argentinas?</h2>
-                <p class="section-subtitle">Fundamentos geográficos, históricos y jurídicos del reclamo argentino</p>
             </div>
             <div class="argumentos-intro fade-in">
-                <p>Sostener que las Malvinas son argentinas no es solamente repetir una consigna. Significa reconocer que existen fundamentos geográficos, históricos y jurídicos que respaldan el reclamo de soberanía de la República Argentina sobre las islas.</p>
+                <p>Las Islas Malvinas son consideradas argentinas a partir de tres grandes tipos de argumentos: <strong>históricos</strong>, <strong>geográficos</strong> y <strong>jurídicos</strong>.</p>
             </div>
             <div class="accordion fade-in">
                 <div class="accordion-item">
-                    <button class="accordion-header active">
-                        <span>Argumentos Geográficos</span>
+                    <button class="accordion-header">
+                        <span>📜 Argumentos Históricos</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
-                    <div class="accordion-content" style="max-height: 500px;">
+                    <div class="accordion-content">
                         <div class="accordion-content-inner">
-                            <p>Uno de los principales argumentos del reclamo argentino es la ubicación geográfica de las islas. Las Malvinas se encuentran muy cerca del territorio continental argentino y a más de 12.000 kilómetros del Reino Unido.</p>
-                            <p><strong>Unidad ecológica:</strong> La fauna del archipiélago y del litoral patagónico presenta numerosas especies en común, como pingüinos, albatros, lobos marinos, elefantes marinos, delfines y diversas aves y peces. Esta continuidad ecológica muestra que las islas y el continente integran un mismo ambiente natural.</p>
-                            <p><strong>Plataforma continental:</strong> Las Malvinas se encuentran sobre la plataforma continental argentina. Esto significa que están asentadas sobre la prolongación natural del territorio nacional bajo el mar. La demarcación del límite exterior de la plataforma continental argentina permitió demostrar científicamente esta continuidad geográfica.</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <p style="flex: 1; min-width: 280px;">Desde el punto de vista histórico, la Argentina sostiene que heredó los derechos que España tenía sobre las islas. Durante el período colonial, las Malvinas estuvieron bajo administración española dependiente de Buenos Aires. Luego de la independencia, el Estado argentino ejerció soberanía efectiva: tomó posesión formal en 1820, estableció autoridades y desarrolló actividades económicas. Esta situación se interrumpió en 1833, cuando el Reino Unido ocupó las islas por la fuerza y expulsó a las autoridades argentinas.</p>
+                                <div style="width: 280px; flex-shrink: 0;">
+                                    <img src="images/mapaantiguo.jpg" alt="Mapa antiguo de Malvinas" style="width: 100%; border-radius: 15px; display: block;">
+                                    <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">"Plano de las Yslas Maluinas", realizado en 1769 por orden de Felipe Ruiz Puente, quien fue el primer gobernador español de las islas.</p>
+                                </div>
+                            </div>
+                            <div id="historia-ampliada" style="display: none; margin-top: 0.5rem;">
+                                <h4>El dominio español</h4>
+                                <p>Desde el siglo XVIII, España ejerció un control efectivo, permanente y reconocido sobre las islas. Entre 1767 y 1811, existió una administración organizada con una sucesión de governors dependientes de Buenos Aires. Esto demuestra que las Malvinas no eran un territorio vacío, sino parte integrante del sistema colonial español en América del Sur.</p>
+                                <p>Durante ese período, otras potencias europeas —como Francia e Inglaterra— intentaron establecerse en las islas. Sin embargo, España logró la restitución de esos asentamientos, consolidando su dominio.</p>
+                                
+                                <h4>La continuidad tras la independencia</h4>
+                                <p>Con la Revolución de Mayo de 1810, las nuevas autoridades rioplatenses adoptaron el principio de <strong>uti possidetis iuris</strong>, según el cual los Estados independientes heredan los territorios de las antiguas jurisdicciones coloniales.</p>
+                                <ul>
+                                    <li><strong>1820:</strong> El marino David Jewett tomó posesión formal de las islas en nombre del nuevo Estado.</li>
+                                    <li><strong>1829:</strong> El gobierno creó la Comandancia Política y Militar de las Malvinas.</li>
+                                </ul>
+                                
+                                <h4>La ocupación de 1833</h4>
+                                <p>El 3 de enero de 1833 se produjo un hecho clave: una fuerza militar británica ocupó las islas y expulsó a las autoridades argentinas. Este acto fue una usurpación realizada por la fuerza, en un contexto donde ya existía una autoridad establecida.</p>
+                                
+                                <h4>Un reclamo permanente</h4>
+                                <p>Desde 1833 hasta la actualidad, la Argentina ha mantenido de forma ininterrumpida su reclamo de soberanía por vías diplomáticas.</p>
+                            </div>
+                            
+                            <button onclick="toggleHistoria()" id="btn-historia" class="btn-leer-mas" style="margin-top: 0;">
+                                📖 <span>Seguir leyendo</span>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>Argumentos Históricos</span>
+                        <span>🌍 Argumentos Geográficos</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-content-inner">
-                            <p>Durante la etapa colonial, las islas estuvieron bajo autoridad de la Corona española. Luego de la Revolución de Mayo de 1810, los territorios que dependían de España en esta región fueron heredados por las Provincias Unidas del Río de la Plata.</p>
-                            <p><strong>1820:</strong> El marino David Jewett tomó posesión de las Malvinas en nombre de las Provincias Unidas.</p>
-                            <p><strong>1829:</strong> Luis María Vernet fue designado comandante político y militar en Puerto Soledad.</p>
-                            <p><strong>1833:</strong> Gran Bretaña invadió y ocupó las Malvinas por la fuerza, expulsó a las autoridades argentinas y a parte de su población, e interrumpió la continuidad del ejercicio de soberanía argentina.</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <p style="flex: 1; min-width: 280px;">En términos geográficos, las Malvinas se encuentran a unos <strong>500 kilómetros</strong> de la costa patagónica y a más de <strong>12.000 kilómetros</strong> del Reino Unido. Además, forman parte de la plataforma continental argentina, lo que indica que son una prolongación natural del territorio.</p>
+                                <div style="width: 280px; flex-shrink: 0;">
+                                    <img src="images/plataforma.jpg" alt="Plataforma Continental" style="width: 100%; border-radius: 15px; display: block;">
+                                    <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">Malvinas está emplazada sobre la Plataforma Continental, y de ese modo, unite al continente por el lecho submarino.</p>
+                                </div>
+                            </div>
+                            <div id="geografia-ampliada" style="display: none; margin-top: 0.5rem;">
+                                <h4>Proximidad y ubicación estratégica</h4>
+                                <p>Las Islas Malvinas están ubicadas en el Atlántico Sur, a aproximadamente <strong>500 kilómetros</strong> de la costa de la Patagonia argentina. En contraste, la distancia que las separa del Reino Unido supera los <strong>12.000 kilómetros</strong>.</p>
+                                
+                                <h4>Continuidad geológica: la plataforma continental</h4>
+                                <p>Las Malvinas no son islas oceánicas aisladas, sino <strong>islas continentales</strong>. Se encuentran sobre la plataforma continental argentina, que es la prolongación natural del territorio bajo el mar.</p>
+                                <p>En <strong>2016</strong>, la Comisión de Límites de la Plataforma Continental de Naciones Unidas reconoció la extensión de la plataforma argentina.</p>
+                                
+                                <h4>Recursos naturales y valor estratégico</h4>
+                                <ul>
+                                    <li><strong>Pesca:</strong> una de las zonas más ricas del mundo</li>
+                                    <li><strong>Hidrocarburos:</strong> potenciales reservas de petróleo y gas</li>
+                                    <li><strong>Proyección antártica:</strong> punto clave hacia la Antártida</li>
+                                </ul>
+                            </div>
+                            
+                            <button onclick="toggleGeografia()" id="btn-geografia" class="btn-leer-mas">
+                                📖 <span>Seguir leyendo</span>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>Argumentos Jurídicos</span>
+                        <span>⚖️ Argumentos Jurídicos</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-content-inner">
-                            <p>La Argentina jamás renunció a sus derechos sobre las Islas Malvinas. Desde la ocupación británica de 1833, el Estado argentino mantuvo de manera constante su reclamo por vías diplomáticas y jurídicas.</p>
-                            <p><strong>1960:</strong> La ONU aprobó la Resolución 1514, que proclamó la necesidad de poner fin al colonialismo.</p>
-                            <p><strong>1965:</strong> La Resolución 2065 reconoció la existencia de una disputa de soberanía entre la Argentina y el Reino Unido e invitó a ambos países a negociar una solución.</p>
-                            <p>La posición argentina sostiene que en el caso de Malvinas no puede aplicarse el principio de libre determinación de los pueblos de la misma manera que en otros procesos de descolonización, porque la población instalada en las islas fue establecida por la potencia ocupante.</p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <p style="flex: 1; min-width: 280px;">En el plano jurídico, la comunidad internacional reconoce que existe una disputa de soberanía. En 1965, la ONU aprobó una resolución que insta a la Argentina y al Reino Unido a negociar una solución pacífica. La Argentina sostiene que <strong>no corresponde aplicar el principio de autodeterminación de los pueblos</strong>, ya que la población actual de las islas fue establecida por el Reino Unido después de la ocupación de 1833.</p>
+                                <div style="width: 280px; flex-shrink: 0;">
+                                    <img src="images/onuarg.png" alt="ONU Argentina" style="width: 100%; border-radius: 15px; display: block;">
+                                    <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">La Resolución 2065 de la ONU reconoce la disputa de soberanía entre Argentina y Reino Unido por las Islas Malvinas.</p>
+                                </div>
+                            </div>
+                            <div id="juridicos-ampliada" style="display: none; margin-top: 0.5rem;">
+                                <h4>El papel de las Naciones Unidas</h4>
+                                <ul>
+                                    <li><strong>1960:</strong> La Asamblea General de la ONU aprobó la Resolución 1514, que establece la necesidad de poner fin al colonialismo.</li>
+                                    <li><strong>1965:</strong> Se aprobó la Resolución 2065, que <strong>reconoce la existencia de una disputa de soberanía</strong> entre la Argentina y el Reino Unido.</li>
+                                </ul>
+                                
+                                <h4>Integridad territorial vs. autodeterminación</h4>
+                                <p>El Reino Unido argumenta que los habitantes de las islas tienen derecho a decidir su propio destino. Sin embargo, la Argentina y la ONU sostienen que este principio <strong>no es aplicable en el caso de Malvinas</strong> porque la población actual fue establecida por el Reino Unido después de la ocupación de 1833.</p>
+                                
+                                <h4>Un caso de descolonización pendiente</h4>
+                                <p>A lo largo del tiempo, distintos organismos regionales e internacionales —como la OEA, el MERCOSUR, la CELAC y otros— han respaldado la posición argentina.</p>
+                            </div>
+                            
+                            <button onclick="toggleJuridicos()" id="btn-juridicos" class="btn-leer-mas">
+                                📖 <span>Seguir leyendo</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -986,7 +1919,7 @@
     <section class="soberania-section" id="soberania">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-number">3</span>
+                <span class="section-number">5</span>
                 <h2 class="section-title">La Soberanía y la Cuestión Malvinas</h2>
             </div>
             <div class="soberania-content">
@@ -1002,313 +1935,208 @@
         </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="timeline-section" id="timeline">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-number">4</span>
-                <h2 class="section-title">Línea de Tiempo</h2>
-                <p class="section-subtitle">Hechos clave en la historia de las Islas Malvinas</p>
-            </div>
-            <div class="timeline fade-in">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1767-1811</div>
-                        <div class="timeline-text">La Corona española ejerció autoridad sobre las islas mediante distintas gobernaciones.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1810</div>
-                        <div class="timeline-text">Con la Revolución de Mayo, las Provincias Unidas heredaron los territorios españoles en la región.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1820</div>
-                        <div class="timeline-text">David Jewett tomó posesión de las Islas Malvinas en nombre de las Provincias Unidas.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1825</div>
-                        <div class="timeline-text">El Reino Unido reconoció a las Provincias Unidas como Estado independiente sin presentar objeciones sobre las islas.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1829</div>
-                        <div class="timeline-text">Luis María Vernet fue nombrado comandante político y militar de las Malvinas.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1833</div>
-                        <div class="timeline-text">Gran Bretaña invadió y ocupó las Islas Malvinas por la fuerza, expulsando a las autoridades argentinas.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1960-1965</div>
-                        <div class="timeline-text">La ONU aprobó las Resoluciones 1514 y 2065 reconociendo la disputa de soberanía.</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1982</div>
-                        <div class="timeline-text">Guerra de Malvinas: 2 de abril (desembarco argentino) al 14 de junio (rendición).</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2016</div>
-                        <div class="timeline-text">Aprobación del límite exterior de la plataforma continental argentina.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galería -->
-    <section class="galeria-section" id="galeria">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-number">5</span>
-                <h2 class="section-title">Galería Fotográfica</h2>
-                <p class="section-subtitle">Imágenes del archipiélago y la región del Atlántico Sur</p>
-            </div>
-            <div class="galeria-grid fade-in" style="justify-content: center;">
-                <div class="galeria-item">
-                    <img src="images/satelital.png" alt="Vista satelital">
-                    <div class="galeria-overlay"><span>Vista satelital del archipiélago</span></div>
-                </div>
-                <div class="galeria-item">
-                    <img src="images/biodiversidad malvinas 1.jpg" alt="Pingüinos en Malvinas">
-                    <div class="galeria-overlay"><span>Pingüinos en las islas</span></div>
-                </div>
-                <div class="galeria-item">
-                    <img src="images/biodiversidad malvinas 3.jpg" alt="Paisaje de Malvinas">
-                    <div class="galeria-overlay"><span>Paisajes del archipiélago</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- La Guerra -->
     <section class="guerra-section" id="guerra">
         <div class="section-container">
             <div class="section-header fade-in">
                 <span class="section-number">6</span>
                 <h2 class="section-title">La Guerra de Malvinas (1982)</h2>
-                <p class="section-subtitle">Un conflicto que marcó la historia argentina reciente</p>
             </div>
             <div class="accordion fade-in">
                 <div class="accordion-item">
-                    <button class="accordion-header active">
-                        <span>La Argentina en dictadura</span>
+                    <button class="accordion-header">
+                        <span>1. Contexto: un conflicto en el marco de la dictadura</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
-                    <div class="accordion-content" style="max-height: 500px;">
-                        <div class="accordion-content-inner" style="display: flex; gap: 1.5rem; align-items: flex-start;">
-                            <div style="flex: 1;">
-                                <p>El 24 de marzo de 1976, un golpe de Estado derrocó al gobierno constitucional e instauró una dictadura cívico-militar. Las Fuerzas Armadas llevaron adelante un régimen represivo que clausuró las instituciones democráticas.</p>
-                                <p>Hacia 1982, la dictadura atravesaba una crisis profunda. La situación económica era muy grave, crecían las protestas sociales y los organismos de derechos humanos denunciaban las violaciones cometidas. En ese contexto, la recuperación militar de las islas fue utilizada como una maniobra para intentar recuperar apoyo social.</p>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <p style="flex: 1; min-width: 280px;">La guerra de Malvinas se desarrolló entre el 2 de abril y el 14 de junio de 1982, durante la última dictadura cívico-militar en Argentina (1976-1983). Este gobierno había suprimido las instituciones democráticas, disuelto el Congreso, prohibido los partidos políticos y desplegado un sistema de represión ilegal que dejó miles de personas desaparecidas. Hacia comienzo de la década de 1980, la dictadura atravesaba una profunda crisis. La situación económica era cada vez más grave, con inflación, endeudamiento y deterioro de las condiciones de vida. Al mismo tiempo, crecían las protestas sociales y la presión de los organismos de derechos humanos, tanto a nivel nacional como internacional. En este contexto de debilidad, la conducción militar buscó recuperar apoyo social apelando a la cuestión Malvinas, un reclamo histórico profundamente arraigado en la sociedad argentina.</p>
+                                <div style="width: 280px; flex-shrink: 0;">
+                                    <img src="images/dictadura 1.jpg" alt="Dictadura Militar" style="width: 100%; border-radius: 15px; display: block;">
+                                    <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">Un conflicto en el marco de la dictadura cívico-militar (1976-1983).</p>
+                                </div>
                             </div>
-                            <img src="images/dictadura 1.jpg" alt="Dictadura militar" style="width: 300px; border-radius: 10px; flex-shrink: 0;">
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>El desarrollo del conflicto</span>
+                        <span>2. Desarrollo del conflicto</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <div style="position: relative; padding-left: 20px;">
-                            <div style="position: absolute; left: 6px; top: 10px; bottom: 10px; width: 3px; background: var(--celeste); border-radius: 2px;"></div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: #e8f5e9; padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: #27ae60;">2 de abril</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Desembarco de tropas argentinas en Malvinas (Operación Rosario).</p>
+                        <div class="accordion-content-inner">
+                            <p>En la siguiente línea del tiempo se presentan los principales hechos bélicos de la Guerra de Malvinas (1982), desde la recuperación inicial de las islas por parte de Argentina hasta la rendición final ante las fuerzas británicas.</p>
+                            <div class="timeline-war">
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/operacion rosario.png" alt="Operación Rosario"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">2 de abril</div>
+                                        <div class="timeline-war-text">Recuperación de las islas Malvinas (Operación Rosario).</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: #9e9e9e; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px #9e9e9e;"></div>
-                                <div style="background: #f5f5f5; padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: #666;">3 de abril</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">La ONU ordenó el retiro de las tropas argentinas.</p>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">3 de abril</div>
+                                        <div class="timeline-war-text">Recuperación de las islas Georgias del Sur (Operación Georgias).</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/operacion georgias.png" alt="Operación Georgias"></div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: #9e9e9e; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px #9e9e9e;"></div>
-                                <div style="background: #f5f5f5; padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: #666;">10 de abril</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Estados Unidos inició mediación diplomática.</p>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/zona exclusión.png" alt="Zona exclusión"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">12 de abril</div>
+                                        <div class="timeline-war-text">Reino Unido establece zona de exclusión marítima de 200 millas.</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: var(--celeste-claro); padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: var(--azul-oceano);">1 de mayo</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Comenzaron los ataques aéreos británicos.</p>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">25 de abril</div>
+                                        <div class="timeline-war-text">Tropas británicas toman las Georgias del Sur (Operación Paraquet).</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/paranquet.png" alt="Operación Paraquet"></div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: #c0392b; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px #c0392b;"></div>
-                                <div style="background: #ffebee; padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px; border-left: 3px solid #c0392b;">
-                                    <strong style="color: #c0392b;">2 de mayo</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">ARA General Belgrano hundido (323 muertos).</p>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/1ero de mayo.png" alt="1 de mayo"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">1 de mayo</div>
+                                        <div class="timeline-war-text">Primeros ataques ingleses a Puerto Argentino.</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: var(--celeste-claro); padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: var(--azul-oceano);">4 de mayo</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Aviones argentinos hundieron al HMS Sheffield.</p>
+                                <div class="timeline-war-item timeline-right timeline-war-danger">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">2 de mayo</div>
+                                        <div class="timeline-war-text">Hundimiento del Crucero argentino ARA General Belgrano.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/belgrano.png" alt="ARA General Belgrano"></div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: var(--celeste-claro); padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: var(--azul-oceano);">21 de mayo</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Desembarco británico en las islas.</p>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/aviso alferez sobral.png" alt="ARA Alférez Sobral"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">3 de mayo</div>
+                                        <div class="timeline-war-text">Ataque al ARA Alférez Sobral.</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: var(--celeste-claro); padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: var(--azul-oceano);">8 de junio</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Aviación argentina atacó buques británicos en Bahía Agradable.</p>
+                                <div class="timeline-war-item timeline-right timeline-war-success">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">4 de mayo</div>
+                                        <div class="timeline-war-text">Hundimiento del destructor británico HMS Sheffield por misil Exocet.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/sheffield.png" alt="HMS Sheffield"></div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: var(--celeste-claro); padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: var(--azul-oceano);">11-12 de junio</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Batalla de Monte Longdon.</p>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/narwal.png" alt="Narwal"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">9 de mayo</div>
+                                        <div class="timeline-war-text">Hundimiento del pesquero argentino Narwal.</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style="position: relative; margin-bottom: 1.5rem;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: var(--celeste); border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px var(--celeste);"></div>
-                                <div style="background: var(--celeste-claro); padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px;">
-                                    <strong style="color: var(--azul-oceano);">13-14 de junio</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Avance británico hacia Puerto Argentino.</p>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">10 de mayo</div>
+                                        <div class="timeline-war-text">Hundimiento del transporte argentino ARA Isla de los Estados.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/10 de mayo.png" alt="10 de mayo"></div>
                                 </div>
-                            </div>
-                            <div style="position: relative;">
-                                <div style="position: absolute; left: -17px; width: 14px; height: 14px; background: #27ae60; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 0 2px #27ae60;"></div>
-                                <div style="background: #e8f5e9; padding: 0.75rem 1rem; border-radius: 8px; margin-left: 10px; border-left: 3px solid #27ae60;">
-                                    <strong style="color: #27ae60;">14 de junio</strong>
-                                    <p style="margin: 0.25rem 0 0; font-size: 0.9rem;">Cese de hostilidades. Fin del conflicto.</p>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/borbon.jpg" alt="Isla Borbón"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">14 de mayo</div>
+                                        <div class="timeline-war-text">Inicio de la ofensiva británica a la isla Borbón.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">21 de mayo</div>
+                                        <div class="timeline-war-text">Batalla de San Carlos y combate de la Altura 234.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/desembarco san carlos.jpg" alt="San Carlos"></div>
+                                </div>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/22 de mayo.png" alt="22 de mayo"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">22 de mayo</div>
+                                        <div class="timeline-war-text">Hundimiento del HMS Ardent.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">25 de mayo</div>
+                                        <div class="timeline-war-text">Hundimiento del HMS Coventry y Atlantic Conveyor.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/25 de mayo.png" alt="25 de mayo"></div>
+                                </div>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/30 de mayo.png" alt="30 de mayo"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">30 de mayo</div>
+                                        <div class="timeline-war-text">Ataque al HMS Invincible.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">6 de junio</div>
+                                        <div class="timeline-war-text">Combate del puente Murrell.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/combate rio murrel.jpeg" alt="Combate Murrell"></div>
+                                </div>
+                                <div class="timeline-war-item timeline-left">
+                                    <div class="timeline-war-img"><img src="images/8dejunio.jpg" alt="8 de junio"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">8 de junio</div>
+                                        <div class="timeline-war-text">Ataque aéreo en bahía Agradable. Hundimiento de dos transportes británicos.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-war-item timeline-right">
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">11 de junio</div>
+                                        <div class="timeline-war-text">Últimos combates por Puerto Argentino.</div>
+                                    </div>
+                                    <div class="timeline-war-img"><img src="images/asalto final.png" alt="Asalto Final"></div>
+                                </div>
+                                <div class="timeline-war-item timeline-left timeline-war-end">
+                                    <div class="timeline-war-img"><img src="images/14 de junio.png" alt="14 de junio"></div>
+                                    <div class="timeline-war-content">
+                                        <div class="timeline-war-date">14 de junio</div>
+                                        <div class="timeline-war-text">Firma del cese de hostilidades y la rendición de las tropas argentinas en la isla Soledad.</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>Las consecuencias</span>
+                        <span>3. Consecuencias y cifras de la guerra</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
-                        <div class="accordion-content-inner" style="display: flex; gap: 1.5rem; align-items: flex-start;">
-                            <div style="flex: 1;">
-                                <p>Murieron 649 argentinos y 255 británicos, y más de mil argentinos resultaron heridos. La derrota debilitó definitivamente a la dictadura y aceleró el proceso de transición democrática.</p>
-                                <p>La guerra de Malvinas debe ser recordada como un episodio doloroso de la historia reciente argentina: una guerra impulsada por una dictadura, pero librada por miles de argentinos que combatieron en condiciones extremas.</p>
-                            </div>
-                            <img src="images/Soldados 2.jpg" alt="Soldados en Malvinas" style="width: 350px; border-radius: 10px; flex-shrink: 0;">
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Combatientes -->
-    <section class="combatientes-section" id="combatientes">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-number">7</span>
-                <h2 class="section-title">Los Combatientes y la Memoria</h2>
-            </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; opacity: 0.9;" class="fade-in">
-                A la guerra de Malvinas fueron más de 23.000 combatientes argentinos. Entre ellos había oficiales, suboficiales y conscriptos. Muchos de ellos tenían entre 19 y 20 años y provenían de distintas regiones del país.
-            </p>
-            <div class="combatientes-grid fade-in">
-                <div class="combatiente-card">
-                    <img src="images/combatientes 1.png" alt="Combatientes" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem;">
-                    <h4>Los que combatieron</h4>
-                    <p>Enfrentaron el miedo, el frío, el hambre y la violencia de la guerra por amor a la patria.</p>
-                </div>
-                <div class="combatiente-card">
-                    <img src="images/darwin.jpg" alt="Darwin" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem;">
-                    <h4>Los caídos</h4>
-                    <p>649 argentinos murieron defending nuestro reclamo soberano sobre las islas.</p>
-                </div>
-                <div class="combatiente-card">
-                    <img src="images/mmalvinas.png" alt="Mujeres en Malvinas" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem;">
-                    <h4>Mujeres en la guerra</h4>
-                    <p>Participaron en enfermería, logística e inteligencia, muchas invisibilizadas por años.</p>
-                </div>
-                <div class="combatiente-card">
-                    <img src="images/excombatientes.jpg" alt="Excombatientes" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 1rem;">
-                    <h4>Los excombatientes</h4>
-                    <p>Reclamaron durante años memoria, asistencia, derechos y reconocimiento social.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Heroes de Malvinas -->
-    <section id="heroes" style="background: linear-gradient(135deg, var(--celeste-oscuro) 0%, var(--azul-oceano) 100%); color: #fff;">
-        <div class="section-container">
-            <div class="section-header fade-in">
-                <span class="section-number" style="background: var(--celeste); color: #fff;">★</span>
-                <h2 class="section-title" style="color: #fff;">Conociendo a los Héroes de Malvinas</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Historias que la memoria colectiva no debe olvidar</p>
-            </div>
-            <div class="accordion fade-in" style="background: rgba(255,255,255,0.1); border-radius: 15px;">
-                <div class="accordion-item">
-                    <button class="accordion-header active" style="color: #fff;">
-                        <span>Julio Rubén Cao: un maestro que enseñó hasta el último día</span>
-                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="accordion-content" style="max-height: 3000px; background: rgba(255,255,255,0.95); color: #333;">
-                        <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; padding: 1.5rem;">
-                            <div style="flex: 0 0 250px;">
-                                <img src="images/juliocao.jpg" alt="Julio Rubén Cao" style="width: 100%; border-radius: 10px;">
-                                <img src="images/12-Julio-Cao-con-sus-alumnos.jpg" alt="Julio Cao con sus alumnos" style="width: 100%; border-radius: 10px; margin-top: 1rem;">
-                                <p style="font-size: 0.8rem; color: #666; text-align: center; margin-top: 0.5rem;">Julio Rubén Cao con sus alumnos</p>
-                            </div>
-                            <div style="flex: 1; min-width: 280px;">
-                                <p><strong>Julio Rubén Cao</strong> fue maestro y soldado argentino. Ejerció la docencia en las escuelas N.º 95, 96 y 32 del partido de La Matanza. En 1981 realizó el servicio militar obligatorio en el Regimiento de Infantería Mecanizado 3 "General Manuel Belgrano", en La Tablada, provincia de Buenos Aires.</p>
-                                <p>Al terminar el servicio militar, volvió a trabajar como docente en la Escuela N.º 32 de Gregorio de Laferrere. En ese momento esperaba el nacimiento de su hija junto a su esposa, Clara. Sin embargo, en el contexto de la recuperación de las Islas Malvinas, se presentó como voluntario el 12 de abril de 1982 y fue destinado con su unidad a Puerto Argentino.</p>
-                                <div style="background: var(--celeste-claro); padding: 1rem; border-radius: 10px; margin: 1rem 0; border-left: 4px solid var(--celeste);">
-                                    <p style="font-style: italic; margin: 0;">"Como maestro y como ser humano, con valores, no puedo dejar de ir. ¿Cómo me siento después detrás de un escritorio si ahora me escondo debajo de la cama?"</p>
-                                    <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: #666;">— Julio Rubén Cao</p>
+                        <div class="accordion-content-inner">
+                            <p>El 14 de junio de 1982, se definió el cese de hostilidades. La guerra dejó un saldo de <strong>649 argentinos muertos, 1063 heridos y 255 británicos caídos</strong>.</p>
+                            <div class="consecuencias-grid">
+                                <div class="consecuencia-card">
+                                    <h4>🇦🇷 Argentinos</h4>
+                                    <ul>
+                                        <li><strong>649</strong> muertos en combate</li>
+                                        <li><strong>1.063</strong> heridos</li>
+                                        <li><strong>3</strong> desaparecidos en el mar</li>
+                                    </ul>
                                 </div>
-                                <p>Desde Malvinas, el 24 de abril de 1982, Julio Cao escribió una carta a sus alumnos de 3.º D. En ella les habló con ternura, recordando la escuela, los cuentos, las risas y el deseo de volver a encontrarse con ellos.</p>
-                                <p><strong>Julio Rubén Cao cayó en combate en Monte Longdon el 14 de junio de 1982.</strong> No pudo conocer a su hija primogénita, que nació el 28 de agosto de ese mismo año y fue bautizada Julia María en homenaje a su padre.</p>
-                            </div>
-                        </div>
-                        <div style="background: #f5f5f5; padding: 1.5rem; margin: 0 1.5rem 1.5rem; border-radius: 10px;">
-                            <h4 style="color: var(--azul-oceano); margin-bottom: 1rem;">📜 Carta de Julio Rubén Cao a sus alumnos</h4>
-                            <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
-                                <div style="flex: 1; min-width: 280px;">
-                                    <img src="images/carta julio cao.jpg" alt="Carta de Julio Cao" style="width: 100%; border-radius: 10px;">
-                                </div>
-                                <div style="flex: 1; min-width: 280px;">
-                                    <p style="font-style: italic; line-height: 1.8; font-size: 0.95rem;">"A mis queridos alumnos de 3ro D:<br><br>
-                                    No hemos tenido tiempo para despedirnos y eso me ha tenido preocupado muchas noches aquí en Malvinas, donde me encuentro cumpliendo mi labor de soldado: Defender la Bandera. Espero que ustedes no se preocupen mucho por mí porque muy pronto vamos a estar juntos nuevamente y vamos a cerrar los ojos y nos vamos a subir a nuestro inmenso Cóndor y le vamos a decir que nos lleve a todos al país de los cuentos que como ustedes saben queda muy cerca de las Malvinas.<br><br>
-                                    Y ahora como el maestro conoce muy bien las islas no nos vamos a perder. Chicos, quiero que sepan que a las noches cuando me acuesto cierro los ojos y veo cada una de sus caritas riendo y jugando; cuando me duermo sueño que estoy con ustedes. Quiero que se pongan muy contents porque su maestro es un soldado que los quiere y los extraña. Ahora sólo le pido a Dios volver pronto con ustedes. Muchos cariños de su maestro que nunca se olvida de ustedes.<br><br>
-                                    Sra., además desearía hacer llegar mi recuerdo y saludos a todo el personal, a la señora Bibiana, al Sr. Galo, Cristina, Nora, Mercedes, Bárbara, Isabel y a todos los docentes de mi turno y de la escuela; a la señora Alicia quisiera que sepa que extraño mucho su mate de las 13 hs, y espero pronto volverlo a saborear, ya que aquí el desayuno es una especie de mate cocido mezclado con cal de albañil y hasta un poco de cemento, nada de azúcar.<br><br>
-                                    Habiendo distraído demasiado su atención, pero sintiéndonos por un instante con uds., me decido a concluir estas líneas con la esperanza de encontrarme a la brevedad con ustedes.<br><br>
-                                    Afectuosamente, JULIO."</p>
+                                <div class="consecuencia-card">
+                                    <h4>🇬🇧 Británicos</h4>
+                                    <ul>
+                                        <li><strong>255</strong> bajas fatales</li>
+                                        <li><strong>775</strong> heridos</li>
+                                        <li><strong>3</strong> bajas civiles</li>
+                                    </ul>
                                 </div>
                             </div>
+                            <p>Más allá de las cifras, la guerra tuvo profundas consecuencias políticas, sociales y económicas para Argentina, contribuyendo finalmente a la caída de la dictadura militar.</p>
+                            <p><strong>Impacto en la sociedad argentina:</strong></p>
+                            <p>La derrota tuvo un impacto inmediato en la sociedad argentina. Muchos de los sectores que inicialmente habían apoyado la recuperación de las islas comenzaron a cuestionar duramente a las Fuerzas Armadas.</p>
+                            <p>El descrédito del régimen se profundizó y se multiplicaron las denuncias sobre violaciones a los derechos humanos. En este contexto, la dictadura perdió definitivamente su legitimidad.</p>
+                            <p>La guerra de Malvinas fue, así, un factor decisivo en la caída del gobierno militar y en el inicio del proceso de transición democrática que culminaría en 1983.</p>
                         </div>
                     </div>
                 </div>
@@ -1316,100 +2144,555 @@
         </div>
     </section>
 
-    <!-- Recursos Naturales -->
-    <section class="recursos-section" id="recursos">
+    <!-- Argentina Bicontinental -->
+    <section class="bicontinental-section" id="bicontinental">
         <div class="section-container">
             <div class="section-header fade-in">
                 <span class="section-number">8</span>
-                <h2 class="section-title">Recursos Naturales del Atlántico Sur</h2>
-                <p class="section-subtitle">Riqueza biológica, mineral y energética en disputa</p>
+                <h2 class="section-title">Argentina Bicontinental: Territorio, Mares y Soberanía en Disputa</h2>
+            </div>
+            <p class="suma-intro fade-in">Argentina tiene cerca de un tercio de su territorio bajo dominio de una potencia extranjera y extra-continental.</p>
+            <div class="suma-container fade-in">
+                <div class="suma-col">
+                    <span class="suma-icon">🏝️</span>
+                    <div class="suma-text">Superficie terrestre <em>(Malvinas, Georgias y Sandwich del Sur)</em>: <strong>≈ 15.800 km²</strong></div>
+                </div>
+                <div class="suma-operator-v">+</div>
+                <div class="suma-col">
+                    <span class="suma-icon">🌊</span>
+                    <div class="suma-text">Proyección de espacios marítimos: <strong>≈ 2.500.000 km²</strong></div>
+                </div>
+                <div class="suma-equals-v">=</div>
+                <div class="suma-col suma-total-col">
+                    <span class="suma-icon">🗺️</span>
+                    <div class="suma-text">Total territorio ocupado ilegítimamente: <strong>≈ 3.000.000 km²</strong></div>
+                </div>
             </div>
             <div class="accordion fade-in">
                 <div class="accordion-item">
-                    <button class="accordion-header active">
-                        <span>🐟 Pesca y riqueza marítima</span>
+                    <button class="accordion-header">
+                        <span>Territorio y espacios marítimos</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
-                    <div class="accordion-content" style="max-height: 500px;">
+                    <div class="accordion-content">
                         <div class="accordion-content-inner">
-                            <p>Las aguas que rodean las Malvinas poseen una enorme riqueza pesquera. Allí se encuentran especies como merluza, calamar, anchoa, atún, bacalao, caballa, corvina, sardina fueguina y pejerreyes de mar.</p>
-                            <p>También abundan crustáceos y moluscos: langostinos, centollas, almejas, mejillones, pulpos y camarones.</p>
-                            <p>Una parte muy importante de esa actividad se vincula con la venta de licencias de pesca a empresas extranjeras en zonas establecidas unilateralmente por el Reino Unido.</p>
+                            <p>Es un error limitar la controversia con Gran Bretaña a la relativamente pequeña superficie territorial de las islas Malvinas, Georgias y Sándwich del Sur. El territorio argentino ocupado ilegalmente por Gran Bretaña incluye no solo estas superficies terrestres, sino también sus espacios marítimos circundantes —el mar adyacente, su lecho y subsuelo— y sectores geográficos de relevancia internacional, como la Antártida.</p>
+                            
+                            <p>Esto significa que Argentina tiene cerca de un tercio de su territorio bajo dominio de una potencia extranjera y extra-continental. Por lo tanto, la controversia va mucho más allá de lo que algunos podrían considerar "unas pequeñas islas sin importancia en el Atlántico Sur".</p>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>🦐 Krill, plancton y algas</span>
+                        <span>El mapa bicontinental y la proyección soberana</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-content-inner">
-                            <p>Entre los recursos del Atlántico Sur se destaca el <strong>krill</strong>, también llamado camarón antártico. Se trata de una especie pequeña, de alto valor proteico, que constituye un alimento fundamental para peces, aves, focas y ballenas.</p>
-                            <p>También son importantes el <strong>plancton vegetal</strong> y las <strong>algas</strong>, que forman verdaderos bosques submarinos. Estos recursos tienen usos alimenticios, ganaderos e industriales.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>⚡ Petróleo, gas y minerales</span>
-                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>En la región de las Malvinas existen importantes reservas potenciales de <strong>petróleo y gas</strong>. Además, el fondo marino presenta minerales valiosos, como los nódulos polimetálicos.</p>
-                            <p>La exploración de hidrocarburos realizada por empresas vinculadas al Reino Unido constituye una acción unilateral en una zona en disputa, considerada ilegal por la Argentina.</p>
+                            <p>Argentina es un país bicontinental: su territorio abarca tanto el continente americano como extensas regiones marítimas y subantárticas. El reconocimiento de esta condición no solo reafirma la soberanía sobre las islas, sino que también fortalece los derechos sobre la plataforma continental y los recursos naturales asociados.</p>
+                            
+                            <div class="mapa-bicontinental-box">
+                                <h4>🗺️ El Mapa Bicontinental</h4>
+                                <img src="images/mapa-bicontinental-argentina.jpg" alt="Mapa Bicontinental Argentina" style="width: 100%; max-width: 600px; border-radius: 15px; display: block; margin: 1rem auto;">
+                                
+                                <div class="mapa-info-box">
+                                    <p>El mapa bicontinental fue confeccionado por el <strong>Instituto Geográfico Nacional</strong>. Desde 2010 es el que se utiliza en el sistema educativo.</p>
+                                    <div class="cita-box">
+                                        <p><em>"Se defiende lo que se conoce"</em>, dijeron los diputados que lo aprobaron como obligatorio y consideraron que contribuye a afianzar la noción de <strong>"pertenencia nacional"</strong>.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="caracteristicas-grid">
+                                <div class="caracteristica-item">
+                                    <h5>📍 Nueva representación</h5>
+                                    <p>Para constatar qué nueva representación construye el mapa no hay más que doblarlo a la mitad: en el medio de la Argentina ya no quedan La Pampa, Córdoba o Mendoza sino Tierra del Fuego.</p>
+                                </div>
+                                <div class="caracteristica-item">
+                                    <h5>🔗 Continuidad geográfica</h5>
+                                    <p>El mapa permite visualizar la continuidad geológica y geográfica con la Antártida, mostrando que nuestras islas son parte del mismo territorio nacional.</p>
+                                </div>
+                                <div class="caracteristica-item">
+                                    <h5>🏛️ Provincia de Tierra del Fuego</h5>
+                                    <p>Las Islas Malvinas y los archipiélagos de Georgias del Sur y Sándwich del Sur integran la provincia argentina de <strong>Tierra del Fuego, Antártida e Islas del Atlántico Sur</strong>, cuya capital es Ushuaia.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;" class="fade-in">
-                <div>
-                    <h4 style="color: var(--azul-oceano); margin-bottom: 1rem; text-align: center;">🌍 Geografía y Flora de Malvinas</h4>
-                    <video src="images/Geografía y Flora de Malvinas - Museo Malvinas e Islas del Atlántico Sur (720p, h264).mp4" controls style="width: 100%; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);"></video>
-                </div>
-                <div>
-                    <h4 style="color: var(--azul-oceano); margin-bottom: 1rem; text-align: center;">🐧 La Fauna de Malvinas</h4>
-                    <video src="images/La Fauna de Malvinas - Museo Malvinas e Islas del Atlántico Sur (720p, h264).mp4" controls style="width: 100%; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);"></video>
-                </div>
-            </div>
+
         </div>
     </section>
+
+    <style>
+        .bicontinental-section {
+            background: linear-gradient(135deg, var(--azul-oceano) 0%, var(--azul-profundo) 100%);
+            color: var(--blanco);
+        }
+
+        .bicontinental-section .section-title {
+            color: var(--blanco);
+        }
+
+        .bicontinental-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .bicontinental-section .accordion {
+            background: transparent;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bicontinental-section .accordion-header {
+            background: rgba(255,255,255,0.1);
+            color: var(--blanco);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .bicontinental-section .accordion-header:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .bicontinental-section .accordion-content {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .bicontinental-section .accordion-content-inner {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .bicontinental-section .accordion-content-inner p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+        }
+
+        .bicontinental-section .accordion-content-inner h4 {
+            color: var(--celeste-claro);
+        }
+
+        .suma-intro {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--celeste-claro);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--celeste);
+        }
+
+        .suma-container {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem auto;
+            max-width: 700px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.15);
+        }
+
+        .suma-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            flex-wrap: nowrap;
+        }
+
+        .suma-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .suma-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .suma-text em {
+            color: rgba(255,255,255,0.7);
+            font-style: normal;
+        }
+
+        .suma-text strong {
+            color: var(--celeste-claro);
+            font-weight: 700;
+        }
+
+        .suma-operator-v, .suma-equals-v {
+            font-size: 2rem;
+            color: var(--celeste);
+            font-weight: bold;
+            margin: 0.3rem 0;
+        }
+
+        .suma-total-col {
+            background: rgba(117,170,219,0.15);
+            border: 2px solid var(--celeste);
+            margin-top: 0.5rem;
+        }
+
+        .suma-total-col .suma-text strong {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .suma-container {
+                padding: 1rem;
+            }
+            .suma-col {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .suma-text {
+                text-align: center;
+                white-space: normal;
+            }
+        }
+
+        .proyeccion-box {
+            background: linear-gradient(135deg, rgba(74,124,89,0.3) 0%, rgba(74,124,89,0.1) 100%);
+            border: 1px solid rgba(74,124,89,0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .proyeccion-box h4 {
+            color: #a5d6a7;
+            margin-bottom: 0.5rem;
+        }
+
+        .proyeccion-box p {
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+
+        .mapa-bicontinental-box {
+            background: rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+        }
+
+        .mapa-bicontinental-box h4 {
+            color: var(--celeste-claro);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .mapa-info-box {
+            margin-top: 1rem;
+        }
+
+        .mapa-info-box p {
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .cita-box {
+            background: rgba(117,170,219,0.15);
+            border-left: 4px solid var(--celeste);
+            padding: 1rem 1.2rem;
+            border-radius: 0 10px 10px 0;
+            margin-top: 1rem;
+        }
+
+        .cita-box p {
+            color: rgba(255,255,255,0.9);
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .caracteristicas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .caracteristica-item {
+            background: rgba(255,255,255,0.05);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border-top: 3px solid var(--celeste);
+        }
+
+        .caracteristica-item h5 {
+            color: var(--celeste-claro);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .caracteristica-item p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .caracteristica-item strong {
+            color: var(--celeste-claro);
+        }
+
+        /* Fauna y Flora */
+        .fauna-section .accordion {
+            background: var(--blanco);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .fauna-section {
+            background: linear-gradient(180deg, var(--blanco) 0%, var(--verde-muy-claro) 100%);
+            overflow-x: hidden;
+        }
+
+        .fauna-section .accordion-content-inner {
+            max-width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .fauna-section .accordion-content-inner .fauna-gallery,
+        .fauna-section .accordion-content-inner .flora-grid {
+            box-sizing: border-box;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .fauna-section .accordion-content-inner .fauna-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .fauna-section .accordion-content-inner .fauna-gallery .fauna-item {
+            flex: 1 1 280px;
+            max-width: 350px;
+            margin: 0.5rem;
+        }
+
+        .fauna-intro, .flora-content, .fauna-footer {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .fauna-intro h3, .fauna-content h3, .flora-content h3, .fauna-footer h3 {
+            color: var(--azul-oceano);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--verde-natural);
+            padding-left: 1rem;
+        }
+
+        .fauna-intro p, .flora-content p, .fauna-footer p {
+            font-size: 1.1rem;
+            color: var(--gris-texto);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .fauna-grid, .flora-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .fauna-card, .flora-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--sombra);
+            border: 1px solid var(--celeste-claro);
+        }
+
+        .flora-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .fauna-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            max-width: 100%;
+        }
+
+        .fauna-item {
+            background: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            max-width: 100%;
+            flex: 1 1 300px;
+            min-width: 250px;
+            max-width: 350px;
+        }
+
+        .fauna-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .fauna-item p {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--gris-texto);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .fauna-card h4, .flora-card h4, .accordion-content-inner h4 {
+            color: var(--verde-natural);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fauna-card ul, .flora-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fauna-card li, .flora-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gris-suave);
+            font-size: 0.95rem;
+            color: var(--gris-texto);
+        }
+
+        .fauna-card li:last-child, .flora-card li:last-child {
+            border-bottom: none;
+        }
+
+        .fauna-card li strong {
+            color: var(--azul-oceano);
+        }
+
+        .soberania-box {
+            background: linear-gradient(135deg, var(--azul-oceano) 0%, var(--azul-profundo) 100%);
+            color: var(--blanco);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .soberania-box p {
+            color: var(--blanco);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .soberania-box strong {
+            color: var(--celeste);
+            font-size: 1.2rem;
+        }
+
+        .video-section {
+            max-width: 1000px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .video-section h3 {
+            color: var(--azul-oceano);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-card h4 {
+            padding: 1rem;
+            color: var(--azul-oceano);
+            font-size: 1rem;
+            text-align: center;
+        }
+    </style>
 
     <!-- Importancia Estratégica -->
     <section class="estrategia-section" id="estrategia">
         <div class="section-container">
             <div class="section-header fade-in">
                 <span class="section-number">9</span>
-                <h2 class="section-title">Importancia Estratégica Actual</h2>
+                <h2 class="section-title">El Valor Estratégico de las Islas Malvinas</h2>
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; opacity: 0.9;" class="fade-in">
-                Las Islas Malvinas tienen una enorme importancia estratégica en el presente. Su ubicación las convierte en un punto clave para el control de rutas marítimas, recursos pesqueros, posibles reservas de hidrocarburos y acceso a zonas próximas a la Antártida.
+            <p class="estrategia-intro fade-in">
+                Las Islas Malvinas constituyen un territorio de gran importancia estratégica para la Argentina, no solo por su valor histórico y geográfico, sino también por su relevancia económica, geopolítica y ambiental.
             </p>
             <div class="estrategia-grid fade-in">
                 <div class="estrategia-card">
-                    <h4>🛤️ Rutas marítimas</h4>
-                    <p>Control del tránsito entre el Atlántico y el Pacífico a través del cabo de Hornos.</p>
+                    <h4>🌍 Posición geográfica clave</h4>
+                    <p>Las Malvinas se ubican en el Atlántico Sur, a unos <strong>500 kilómetros</strong> de la costa patagónica. Las islas forman parte de la <strong>plataforma continental argentina</strong>, es decir, una prolongación natural del continente bajo el mar.</p>
+                    <p>Su posición las convierte en un punto estratégico para el control de las rutas marítimas del Atlántico Sur.</p>
                 </div>
                 <div class="estrategia-card">
-                    <h4>🐟 Recursos pesqueros</h4>
-                    <p>Zona de pesca intensiva con especies de alto valor comercial.</p>
+                    <h4>🌊 Control de un vasto espacio marítimo</h4>
+                    <p>El conflicto por Malvinas no se limita a la superficie terrestre del archipiélago. Se estima que la disputa abarca cerca de <strong>3.000.000 km²</strong>, aproximadamente un tercio del territorio argentino.</p>
+                    <ul>
+                        <li>Los recursos del mar</li>
+                        <li>Las rutas de navegación</li>
+                        <li>La proyección hacia la Antártida</li>
+                    </ul>
                 </div>
                 <div class="estrategia-card">
-                    <h4>🛢️ Hidrocarburos</h4>
-                    <p>Potenciales reservas de petróleo y gas en el subsuelo marino.</p>
+                    <h4>💎 Recursos naturales estratégicos</h4>
+                    <ul>
+                        <li><strong>Pesca:</strong> calamar, merluza, krill</li>
+                        <li><strong>Hidrocarburos:</strong> petróleo y gas</li>
+                        <li><strong>Minerales:</strong> oro, cobre, platino</li>
+                        <li><strong>Agua dulce:</strong> vinculación con reservas del planeta</li>
+                    </ul>
                 </div>
                 <div class="estrategia-card">
-                    <h4>🗺️ Plataforma continental</h4>
-                    <p>Vínculo directo con la prolongación natural del territorio argentino.</p>
-                </div>
-                <div class="estrategia-card">
-                    <h4>❄️ Proyección antártica</h4>
-                    <p>Punto de apoyo estratégico hacia el continente antártico.</p>
-                </div>
-                <div class="estrategia-card">
-                    <h4>⚓ Base militar</h4>
-                    <p>La base británica en Mount Pleasant refuerza la presencia militar en la región.</p>
+                    <h4>❄️ Proyección hacia la Antártida</h4>
+                    <p>Las Malvinas funcionan como un <strong>puente geográfico y político</strong> hacia la Antártida.</p>
+                    <ul>
+                        <li>Facilitar el acceso al continente antártico</li>
+                        <li>Sostener reclamos territoriales</li>
+                        <li>Desarrollar investigaciones científicas</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1422,11 +2705,11 @@
                 <span class="section-number">10</span>
                 <h2 class="section-title">Malvinas, Antártida y Futuro</h2>
             </div>
-            <div style="max-width: 800px; margin: 0 auto;" class="fade-in">
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">La cuestión Malvinas también se vincula con la Antártida y con los desafíos del futuro. La ubicación de las islas las convierte en un punto de apoyo estratégico hacia el continente antártico, un espacio de creciente interés científico, ambiental y geopolítico.</p>
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">El Atlántico Sur concentra recursos naturales que serán cada vez más relevantes en las próximas décadas: la pesca, el agua, los hidrocarburos y otros bienes del fondo marino.</p>
-                <div style="background: var(--celeste-claro); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
-                    <p style="font-size: 1.15rem; font-weight: 600; color: var(--azul-oceano); text-align: center;">Pensar Malvinas no es solo mirar al pasado: también es reflexionar sobre el futuro del territorio, de los recursos y de la soberanía argentina.</p>
+            <div class="antartida-content fade-in">
+                <p>La cuestión Malvinas también se vincula con la Antártida y con los desafíos del futuro. La ubicación de las islas las convierte en un punto de apoyo estratégico hacia el continente antártico, un espacio de creciente interés científico, ambiental y geopolítico.</p>
+                <p>El Atlántico Sur concentra recursos naturales que serán cada vez más relevantes en las próximas décadas: la pesca, el agua, los hidrocarburos y otros bienes del fondo marino.</p>
+                <div class="antartida-box">
+                    <p>Pensar Malvinas no es solo mirar al pasado: también es reflexionar sobre el futuro del territorio, de los recursos y de la soberanía argentina.</p>
                 </div>
             </div>
         </div>
@@ -1439,11 +2722,11 @@
                 <span class="section-number">11</span>
                 <h2 class="section-title">Memoria, Democracia y Soberanía</h2>
             </div>
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="fade-in">
-                <p style="font-size: 1.15rem; margin-bottom: 2rem; opacity: 0.95;">La causa Malvinas forma parte de la identidad colectiva argentina. Recordar la historia de las islas, comprender los fundamentos del reclamo de soberanía y honrar a quienes combatieron son tareas fundamentales para construir memoria.</p>
-                <p style="font-size: 1.15rem; margin-bottom: 2rem; opacity: 0.95;">La experiencia de la guerra de 1982 enseña que el reclamo por Malvinas debe sostenerse por medios pacíficos, diplomáticos y de acuerdo con el derecho internacional.</p>
-                <div style="background: rgba(255,255,255,0.15); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
-                    <p style="font-size: 1.2rem; font-weight: 600;">La defensa de la soberanía no puede separarse de la defensa de la democracia, los derechos humanos y la paz.</p>
+            <div class="memoria-content fade-in">
+                <p>La causa Malvinas forma parte de la identidad colectiva argentina. Recordar la historia de las islas, comprender los fundamentos del reclamo de soberanía y honrar a quienes combatieron son tareas fundamentales para construir memoria.</p>
+                <p>La experiencia de la guerra de 1982 enseña que el reclamo por Malvinas debe sostenerse por medios pacíficos, diplomáticos y de acuerdo con el derecho internacional.</p>
+                <div class="memoria-box">
+                    <p>La defensa de la soberanía no puede separarse de la defensa de la democracia, los derechos humanos y la paz.</p>
                 </div>
             </div>
         </div>
@@ -1455,7 +2738,7 @@
             <div class="section-header fade-in">
                 <span class="section-number">12</span>
                 <h2 class="section-title">Ideas Clave</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">Puntos fundamentales para recordar</p>
+                <p class="section-subtitle">Puntos fundamentales para recordar</p>
             </div>
             <div class="ideas-grid fade-in">
                 <div class="idea-card">
@@ -1483,8 +2766,8 @@
                     <p>Recordar Malvinas también es honrar a los caídos y reconocer a los excombatientes.</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 4rem;" class="fade-in">
-                <p style="font-size: 1.5rem; font-weight: 700; color: var(--celeste);">Las Malvinas son argentinas: por su geografía, por su historia, por el derecho y por la memoria.</p>
+            <div class="ideas-conclusion fade-in">
+                <p>Las Malvinas son argentinas: por su geografía, por su historia, por el derecho y por la memoria.</p>
             </div>
         </div>
     </section>
@@ -1493,7 +2776,6 @@
     <footer>
         <p class="esrn">ESRN Rural Virtual</p>
         <p>Área: Educación Científica y Tecnológica</p>
-        
     </footer>
 
     <!-- Lightbox -->
@@ -1505,21 +2787,44 @@
     <script>
         // Acordeón
         document.querySelectorAll('.accordion-header').forEach(header => {
+            // Inicializar acordeones con active
+            if (header.classList.contains('active')) {
+                const content = header.nextElementSibling;
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+            
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
                 const isActive = header.classList.contains('active');
                 
-                document.querySelectorAll('.accordion-header').forEach(h => {
-                    h.classList.remove('active');
-                    h.nextElementSibling.style.maxHeight = '0';
-                });
-                
                 if (!isActive) {
+                    document.querySelectorAll('.accordion-header').forEach(h => {
+                        h.classList.remove('active');
+                        h.nextElementSibling.style.maxHeight = '0';
+                    });
+                    
                     header.classList.add('active');
                     content.style.maxHeight = content.scrollHeight + 'px';
+                } else {
+                    header.classList.remove('active');
+                    content.style.maxHeight = '0';
                 }
             });
         });
+
+        // Tarjetas de islas
+        function toggleIsland(card) {
+            const content = card.querySelector('.island-card-content');
+            const isExpanded = card.classList.contains('expanded');
+            
+            if (isExpanded) {
+                card.classList.remove('expanded');
+                content.style.maxHeight = '0';
+            } else {
+                card.classList.add('expanded');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
 
         // Animaciones al scroll
         const observerOptions = {
@@ -1552,7 +2857,7 @@
         });
 
         // Lightbox para galería
-        document.querySelectorAll('.galeria-item img').forEach(img => {
+        document.querySelectorAll('.galeria-item img, .island-card .island-image img, .fauna-item img, .flora-card img').forEach(img => {
             img.addEventListener('click', () => {
                 document.getElementById('lightbox-img').src = img.src;
                 document.getElementById('lightbox').classList.add('active');
@@ -1566,6 +2871,54 @@
         document.getElementById('lightbox').addEventListener('click', (e) => {
             if (e.target.id === 'lightbox') closeLightbox();
         });
+
+        // Botón seguir leyendo - Argumentos Históricos
+        function toggleHistoria() {
+            const contenido = document.getElementById('historia-ampliada');
+            const btn = document.getElementById('btn-historia');
+            const accordionContent = btn.closest('.accordion-content');
+            if (contenido.style.display === 'none') {
+                contenido.style.display = 'block';
+                btn.querySelector('span').textContent = 'Mostrar menos';
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            } else {
+                contenido.style.display = 'none';
+                btn.querySelector('span').textContent = 'Seguir leyendo';
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            }
+        }
+
+        // Botón seguir leyendo - Argumentos Geográficos
+        function toggleGeografia() {
+            const contenido = document.getElementById('geografia-ampliada');
+            const btn = document.getElementById('btn-geografia');
+            const accordionContent = btn.closest('.accordion-content');
+            if (contenido.style.display === 'none') {
+                contenido.style.display = 'block';
+                btn.querySelector('span').textContent = 'Mostrar menos';
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            } else {
+                contenido.style.display = 'none';
+                btn.querySelector('span').textContent = 'Seguir leyendo';
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            }
+        }
+
+        // Botón seguir leyendo - Argumentos Jurídicos
+        function toggleJuridicos() {
+            const contenido = document.getElementById('juridicos-ampliada');
+            const btn = document.getElementById('btn-juridicos');
+            const accordionContent = btn.closest('.accordion-content');
+            if (contenido.style.display === 'none') {
+                contenido.style.display = 'block';
+                btn.querySelector('span').textContent = 'Mostrar menos';
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            } else {
+                contenido.style.display = 'none';
+                btn.querySelector('span').textContent = 'Seguir leyendo';
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            }
+        }
     </script>
 
 </body>
