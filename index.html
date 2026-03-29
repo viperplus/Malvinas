@@ -67,6 +67,7 @@
             font-size: 1.4rem;
             color: var(--azul-oceano);
             font-weight: 700;
+            white-space: nowrap;
         }
 
         nav .logo span {
@@ -615,7 +616,7 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 0.95rem;
-margin-top: 0.5rem;
+            margin-top: 0.5rem;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
@@ -1031,6 +1032,137 @@ margin-top: 0.5rem;
             background: var(--blanco);
         }
 
+        /* Conociendo a los héroes - Julio Cao */
+        .heroes-section {
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-oceano) 100%);
+            color: var(--blanco);
+        }
+
+        .heroes-section .section-title {
+            color: var(--blanco);
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-card-content h3 {
+            color: var(--celeste-claro);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card-content p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--celeste);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img:hover {
+            transform: scale(1.02);
+        }
+
+        .hero-quote {
+            background: rgba(117,170,219,0.2);
+            border-left: 4px solid var(--celeste);
+            padding: 1.2rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+        }
+
+        .hero-quote p {
+            color: var(--blanco);
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .legacy-box {
+            background: linear-gradient(135deg, rgba(74,124,89,0.3) 0%, rgba(74,124,89,0.1) 100%);
+            border: 1px solid rgba(74,124,89,0.3);
+            padding: 1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .legacy-box p {
+            color: rgba(255,255,255,0.95);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .hero-carta {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 1.5rem;
+            color: var(--gris-texto);
+        }
+
+        .hero-carta h4 {
+            color: var(--azul-oceano);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--celeste);
+            padding-bottom: 0.5rem;
+        }
+
+        .carta-content {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .carta-saludo {
+            font-weight: 700;
+            color: var(--azul-oceano);
+            margin-bottom: 0.8rem;
+        }
+
+        .carta-firma {
+            text-align: right;
+            font-weight: 700;
+            color: var(--azul-oceano);
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-card {
+                grid-template-columns: 1fr;
+            }
+            .hero-img {
+                max-width: 100%;
+            }
+        }
+
         /* Combatientes */
         .combatientes-section {
             background: linear-gradient(135deg, var(--celeste-oscuro) 0%, var(--azul-oceano) 100%);
@@ -1374,6 +1506,69 @@ margin-top: 0.5rem;
             font-weight: 600;
         }
 
+        /* Ciencia */
+        .ciencia-section {
+            background: linear-gradient(180deg, var(--celeste-muy-claro) 0%, var(--blanco) 100%);
+        }
+
+        .ciencia-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 2rem;
+        }
+
+        .ciencia-quote {
+            font-size: 1.3rem;
+            color: var(--azul-oceano);
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .ciencia-content {
+            max-width: 850px;
+            margin: 0 auto;
+            color: var(--gris-medio);
+            line-height: 1.9;
+        }
+
+        .ciencia-content h3 {
+            color: var(--azul-oceano);
+            margin: 2rem 0 1rem;
+            font-size: 1.2rem;
+        }
+
+        .ciencia-content p {
+            margin-bottom: 1rem;
+        }
+
+        .ciencia-box {
+            background: rgba(117, 170, 219, 0.1);
+            border-left: 4px solid var(--azul-oceano);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .ciencia-box h3 {
+            margin-top: 0;
+        }
+
+        .ciencia-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ciencia-video {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .ciencia-video iframe {
+            width: 100%;
+            max-width: 640px;
+            height: 480px;
+        }
+
         /* Ideas clave */
         .ideas-section {
             background: linear-gradient(135deg, var(--azul-oceano) 0%, var(--azul-profundo) 100%);
@@ -1447,6 +1642,7 @@ margin-top: 0.5rem;
             color: var(--celeste-claro);
             font-weight: 600;
             font-size: 1.1rem;
+            white-space: nowrap;
         }
 
         /* Responsive */
@@ -1537,13 +1733,17 @@ margin-top: 0.5rem;
             <div class="logo">ESRN Rural <span>Virtual</span></div>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#geografia">Geografía</a></li>
+                <li><a href="#hablamos">¿De qué hablamos?</a></li>
+                <li><a href="#faunayflora">Fauna y Flora</a></li>
                 <li><a href="#argumentos">Argumentos</a></li>
                 <li><a href="#soberania">Soberanía</a></li>
-                <li><a href="#timeline">Historia</a></li>
-                <li><a href="#galeria">Galería</a></li>
                 <li><a href="#guerra">Guerra</a></li>
-                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#heroes">Héroes</a></li>
+                <li><a href="#bicontinental">Bicontinental</a></li>
+                <li><a href="#estrategia">Estrategia</a></li>
+                <li><a href="#antartida">Antártida</a></li>
+                <li><a href="#memoria">Memoria</a></li>
+                <li><a href="#ciencia">Ciencia</a></li>
                 <li><a href="#ideas">Ideas Clave</a></li>
             </ul>
         </div>
@@ -1585,7 +1785,7 @@ margin-top: 0.5rem;
                 </div>
                 <div class="geo-info fade-in">
                     <h3>Atlántico Sur, cerca de Argentina</h3>
-                    <p>Las Islas Malvinas se encuentran en el océano Atlántico Sur, frente a las costas de la Patagonia argentina. Su cercanía con el territorio continental argentino contrasta con la gran distancia que las separa del Reino Unido (más de 12.000 km).</p>
+                    <p>Las Malvinas se encuentran en el océano Atlántico Sur, frente a las costas de la Patagonia argentina. Su cercanía con el territorio continental argentino contrasta con la gran distancia que las separa del Reino Unido (más de 12.000 km).</p>
                     <p>Las Malvinas integran, junto con las islas Georgias del Sur, Sandwich del Sur y los espacios marítimos circundantes, una zona de gran importancia geográfica y estratégica. Además, se vinculan directamente con la plataforma continental argentina.</p>
                     <div class="geo-stats">
                         <div class="stat-card">
@@ -1653,6 +1853,12 @@ margin-top: 0.5rem;
                 <p class="section-subtitle">Un ecosistema único en el Atlántico Sur</p>
             </div>
             
+            <div class="webcam-box fade-in">
+                <h3>📷 Vista en vivo de las Malvinas</h3>
+                <p>Transmisión en directo desde Stanley, capital de las islas Malvinas</p>
+                <img src="https://webcams.sure.co.fk/images/jetty.jpg" alt="Vista en vivo de Malvinas" style="width: 100%; max-width: 600px; border-radius: 15px;" onclick="openLightbox(this)">
+            </div>
+            
             <div class="accordion fade-in">
                 <div class="accordion-item">
                     <button class="accordion-header">
@@ -1708,8 +1914,8 @@ margin-top: 0.5rem;
                                     <p><strong>Otros cetáceos:</strong> Orcas, ballenas azules y jorobadas.</p>
                                 </div>
                                 <div class="fauna-item">
-                                    <img src="images/Elefantes y lobos marinos..jpeg" alt="Pinnípedos">
-                                    <p><strong>Pinnípedos:</strong> Elefantes y lobos marinas.</p>
+                                    <img src="images/Elefantes y lobos marinos..jpeg" alt="Pinnípedos" onclick="openLightbox(this)">
+                                    <p><strong>Pinnípedos:</strong> Elefantes y lobos marina.</p>
                                 </div>
                                 <div class="fauna-item">
                                     <img src="images/icticola.jpg" alt="Fauna Ictícola">
@@ -1772,21 +1978,6 @@ margin-top: 0.5rem;
                         </div>
                     </div>
                 </div>
-                
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>🌍 El Valor del Ecosistema</span>
-                        <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
-                            <p>La conjunción de estas especies forma turberas, ecosistemas de musgos y líquenes que almacenan carbono y regulan el agua. Este equilibrio biológico es el que fundamenta la necesidad de un turismo sostenible, que respete las distancias con la fauna y no altere el frágil suelo de las islas.</p>
-                            <div class="soberania-box">
-                                <p><strong>RECORDÁ</strong> que la soberanía de este territorio está bajo el reclamo permanente de Argentina ante las Naciones Unidas, considerando la ocupación británica como una situación colonial que afecta no solo la tierra, sino la gestión de toda esta riqueza natural.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1799,7 +1990,10 @@ margin-top: 0.5rem;
                 <h2 class="section-title">¿Por qué las Malvinas son argentinas?</h2>
             </div>
             <div class="argumentos-intro fade-in">
-                <p>Las Islas Malvinas son consideradas argentinas a partir de tres grandes tipos de argumentos: <strong>históricos</strong>, <strong>geográficos</strong> y <strong>jurídicos</strong>.</p>
+                <p>Las islas Malvinas son consideradas argentinas a partir de tres grandes tipos de argumentos: <strong>históricos</strong>, <strong>geográficos</strong> y <strong>jurídicos</strong>.</p>
+            </div>
+            <div class="video-container fade-in" style="text-align: center; margin: 2rem auto; max-width: 700px;">
+                <iframe src="https://drive.google.com/file/d/1WMx0LabUWEUoAz8fILzTZd4k_T9z3NgQ/preview" width="640" height="480"></iframe>
             </div>
             <div class="accordion fade-in">
                 <div class="accordion-item">
@@ -1810,7 +2004,7 @@ margin-top: 0.5rem;
                     <div class="accordion-content">
                         <div class="accordion-content-inner">
                             <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-bottom: 0.5rem;">
-                                <p style="flex: 1; min-width: 280px;">Desde el punto de vista histórico, la Argentina sostiene que heredó los derechos que España tenía sobre las islas. Durante el período colonial, las Malvinas estuvieron bajo administración española dependiente de Buenos Aires. Luego de la independencia, el Estado argentino ejerció soberanía efectiva: tomó posesión formal en 1820, estableció autoridades y desarrolló actividades económicas. Esta situación se interrumpió en 1833, cuando el Reino Unido ocupó las islas por la fuerza y expulsó a las autoridades argentinas.</p>
+                                <p style="flex: 1; min-width: 280px;">Desde el punto de vista histórico, la Argentina sostiene que heredó los derechos que España tenía sobre las islas. Durante el período colonial, las Malvinas estiverem bajo administración española dependiente de Buenos Aires. Luego de la independencia, el Estado argentino ejerció soberanía efectiva: tomó posesión formal en 1820, estableció autoridades y desarrolló actividades económicas. Esta situación se interrumpió en 1833, cuando el Reino Unido ocupó las islas por la fuerza y expulsó a las autoridades argentinas.</p>
                                 <div style="width: 280px; flex-shrink: 0;">
                                     <img src="images/mapaantiguo.jpg" alt="Mapa antiguo de Malvinas" style="width: 100%; border-radius: 15px; display: block;">
                                     <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">"Plano de las Yslas Maluinas", realizado en 1769 por orden de Felipe Ruiz Puente, quien fue el primer gobernador español de las islas.</p>
@@ -1818,7 +2012,7 @@ margin-top: 0.5rem;
                             </div>
                             <div id="historia-ampliada" style="display: none; margin-top: 0.5rem;">
                                 <h4>El dominio español</h4>
-                                <p>Desde el siglo XVIII, España ejerció un control efectivo, permanente y reconocido sobre las islas. Entre 1767 y 1811, existió una administración organizada con una sucesión de governors dependientes de Buenos Aires. Esto demuestra que las Malvinas no eran un territorio vacío, sino parte integrante del sistema colonial español en América del Sur.</p>
+                                <p>Desde el Siglo XVIII, España ejerció un control efectivo, permanente y reconocido sobre las islas. Entre 1767 y 1811, existió una administración organizada con una sucesión de governors dependientes de Buenos Aires. Esto demuestra que las Malvinas no eran un territorio vacío, sino parte integrante del sistema colonial español en América del Sur.</p>
                                 <p>Durante ese período, otras potencias europeas —como Francia e Inglaterra— intentaron establecerse en las islas. Sin embargo, España logró la restitución de esos asentamientos, consolidando su dominio.</p>
                                 
                                 <h4>La continuidad tras la independencia</h4>
@@ -1852,7 +2046,7 @@ margin-top: 0.5rem;
                                 <p style="flex: 1; min-width: 280px;">En términos geográficos, las Malvinas se encuentran a unos <strong>500 kilómetros</strong> de la costa patagónica y a más de <strong>12.000 kilómetros</strong> del Reino Unido. Además, forman parte de la plataforma continental argentina, lo que indica que son una prolongación natural del territorio.</p>
                                 <div style="width: 280px; flex-shrink: 0;">
                                     <img src="images/plataforma.jpg" alt="Plataforma Continental" style="width: 100%; border-radius: 15px; display: block;">
-                                    <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">Malvinas está emplazada sobre la Plataforma Continental, y de ese modo, unite al continente por el lecho submarino.</p>
+                                    <p style="font-size: 0.85rem; color: var(--gris-medio); font-style: italic; margin-top: 0.5rem;">Malvinas está emplazada sobre la Plataforma Continental, y de ese modo, unite al continente por el lecho submar.</p>
                                 </div>
                             </div>
                             <div id="geografia-ampliada" style="display: none; margin-top: 0.5rem;">
@@ -1945,7 +2139,7 @@ margin-top: 0.5rem;
             <div class="accordion fade-in">
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>1. Contexto: un conflicto en el marco de la dictadura</span>
+                        <span>Contexto: un conflicto en el marco de la dictadura</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
@@ -1962,7 +2156,7 @@ margin-top: 0.5rem;
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>2. Desarrollo del conflicto</span>
+                        <span>Desarrollo del conflicto</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
@@ -2108,7 +2302,7 @@ margin-top: 0.5rem;
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <span>3. Consecuencias y cifras de la guerra</span>
+                        <span>Consecuencias y cifras de la guerra</span>
                         <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="accordion-content">
@@ -2138,6 +2332,42 @@ margin-top: 0.5rem;
                             <p>El descrédito del régimen se profundizó y se multiplicaron las denuncias sobre violaciones a los derechos humanos. En este contexto, la dictadura perdió definitivamente su legitimidad.</p>
                             <p>La guerra de Malvinas fue, así, un factor decisivo en la caída del gobierno militar y en el inicio del proceso de transición democrática que culminaría en 1983.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conociendo a los héroes -->
+    <section class="heroes-section" id="heroes">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">7</span>
+                <h2 class="section-title">Conociendo a los héroes de Malvinas</h2>
+            </div>
+            <div class="hero-card fade-in">
+                <div class="hero-card-content">
+                    <div class="hero-badge">Maestro y Soldado</div>
+                    <img src="images/juliocao.jpg" alt="Julio Rubén Cao" class="hero-img" onclick="openLightbox(this)">
+                    <h3>Julio Rubén Cao: un maestro que enseñó hasta el último día</h3>
+                    <p>Julio Rubén Cao fue maestro y soldado argentino. Ejerció la docencia en las escuelas N.º 95, 96 y 32 del partido de La Matanza. En 1981 realizó el servicio militar obligatorio en el Regimiento de Infantería Mecanizado 3 "General Manuel Belgrano", en La Tablada, provincia de Buenos Aires.</p>
+                    <p>Al terminar el servicio militar, volvió a trabajar como docente en la Escuela N.º 32 de Gregorio de Laferrere. En ese momento esperaba el nacimiento de su hija junto a su esposa, Clara. Sin embargo, en el contexto de la recuperación de las Islas Malvinas, se presentó como voluntario el 12 de abril de 1982 y fue destinado con su unidad a Puerto Argentino.</p>
+                    <blockquote class="hero-quote">
+                        <p>"Como maestro y como ser humano, con valores, no puedo dejar de ir. ¿Cómo me siento después detrás de un escritorio si ahora me escondo debajo de la cama?"</p>
+                    </blockquote>
+                    <p><strong>Su caída en combate:</strong> Julio Rubén Cao cayó en combate en Monte Longdon el 14 de junio de 1982. No pudo conocer a su hija primogénita, que nació el 28 de agosto de ese mismo año y fue bautizada Julia María en homenaje a su padre.</p>
+                    <p style="background: rgba(74,124,89,0.2); padding: 0.8rem; border-radius: 8px; border-left: 3px solid #4a7c59; margin-top: 0.5rem;">Su historia es recordada como la de un docente que unión enseñanza, compromiso y amor por sus alumnos. Por eso, su nombre ocupa hoy un lugar especial en la memoria de Malvinas y en la escuela pública argentina.</p>
+                </div>
+                <div class="hero-carta">
+                    <h4>Carta de Julio Rubén Cao a sus alumnos</h4>
+                    <div class="carta-content">
+                        <p class="carta-saludo">"A mis queridos alumnos de 3ro D:"</p>
+                        <p>No hemos tenido tiempo para despedirnos y eso me ha tenido preocupado muchas noches aquí en Malvinas, donde me encuentro cumpliendo mi labor de soldado: Defender la Bandera. Espero que ustedes no se preocupen mucho por mí porque muy pronto vamos a estar juntos nuevamente y vamos a cerrar los ojos y nos vamos a subir a nuestro inmenso Cóndor y le vamos a decir que nos lleve a todos al país de los cuentos que como ustedes saben queda muy cerca de las Malvinas.</p>
+                        <p>Y ahora como el maestro conoce muy bien las islas no nos vamos a perder. Chicos, quiero que sepan que a las noches cuando me acuesto cierro los ojos y veo cada una de sus caritas riendo y jugando; cuando me duermo sueño que estoy con ustedes. Quiero que se pongan muy contents porque su maestro es un soldado que los quiere y los extraña. Ahora sólo le pido a Dios volver pronto con ustedes. Muchos cariños de su maestro que nunca se olvida de ustedes.</p>
+                        <p>Señora, además desearía hacer llegar mi recuerdo y saludos a todo el personal, a la señora Bibiana, al Sr. Galo, Cristina, Nora, Mercedes, Bárbara, Isabel y a todos los docentes de mi turno y de la escuela; a la señora Alicia quisiera que sepa que extraño mucho su mate de las 13 hs, y espero pronto volverlo a saborear, ya que aquí el desayuno es una especie de mate cocido mezclado con cal de albañil y hasta un poco de cemento, nada de azúcar.</p>
+                        <p>Habiendo distraído demasiado su atención, pero sintiéndonos por un instante con uds., me decido a concluir estas líneas con la esperanza de encontrarme a la brevedad con ustedes.</p>
+                        <p class="carta-firma">Afectuosamente, JULIO.</p>
+                        <img src="images/carta julio cao.jpg" alt="Carta de Julio Rubén Cao" style="width: 100%; border-radius: 10px; margin-top: 1rem;" onclick="openLightbox(this)">
                     </div>
                 </div>
             </div>
@@ -2198,7 +2428,7 @@ margin-top: 0.5rem;
                                 <div class="mapa-info-box">
                                     <p>El mapa bicontinental fue confeccionado por el <strong>Instituto Geográfico Nacional</strong>. Desde 2010 es el que se utiliza en el sistema educativo.</p>
                                     <div class="cita-box">
-                                        <p><em>"Se defiende lo que se conoce"</em>, dijeron los diputados que lo aprobaron como obligatorio y consideraron que contribuye a afianzar la noción de <strong>"pertenencia nacional"</strong>.</p>
+                                        <p><em>"Se defende lo que se conoce"</em>, dijeron los diputados que lo aprobaron como obligatorio y consideraron que contribuye a afianzar la noción de <strong>"pertenencia nacional"</strong>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2206,7 +2436,7 @@ margin-top: 0.5rem;
                             <div class="caracteristicas-grid">
                                 <div class="caracteristica-item">
                                     <h5>📍 Nueva representación</h5>
-                                    <p>Para constatar qué nueva representación construye el mapa no hay más que doblarlo a la mitad: en el medio de la Argentina ya no quedan La Pampa, Córdoba o Mendoza sino Tierra del Fuego.</p>
+                                    <p>Para constatr qué nueva representación construye el mapa no hay más que doblarlo a la mitad: en el medio de la Argentina ya no quedan La Pampa, Córdoba o Mendoza sino Tierra del Fuego.</p>
                                 </div>
                                 <div class="caracteristica-item">
                                     <h5>🔗 Continuidad geográfica</h5>
@@ -2214,7 +2444,7 @@ margin-top: 0.5rem;
                                 </div>
                                 <div class="caracteristica-item">
                                     <h5>🏛️ Provincia de Tierra del Fuego</h5>
-                                    <p>Las Islas Malvinas y los archipiélagos de Georgias del Sur y Sándwich del Sur integran la provincia argentina de <strong>Tierra del Fuego, Antártida e Islas del Atlántico Sur</strong>, cuya capital es Ushuaia.</p>
+                                    <p>Las islas Malvinas y los archipiélagos de Georgias del Sur y Sándwich del Sur integran la provincia argentina de <strong>Tierra del Fuego, Antártida e Islas del Atlántico Sur</strong>, cuya capital es Ushuaia.</p>
                                 </div>
                             </div>
                         </div>
@@ -2457,8 +2687,37 @@ margin-top: 0.5rem;
         }
 
         .fauna-section {
-            background: linear-gradient(180deg, var(--blanco) 0%, var(--verde-muy-claro) 100%);
-            overflow-x: hidden;
+            background: linear-gradient(180deg, var(--blanco) 0%, var(--celeste-muy-claro) 100%);
+        }
+
+        .webcam-box {
+            background: rgba(117, 170, 219, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .webcam-box h3 {
+            color: var(--azul-oceano);
+            margin-bottom: 0.5rem;
+        }
+
+        .webcam-box p {
+            color: var(--gris-medio);
+            margin-bottom: 1rem;
+        }
+
+        .webcam-box img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .webcam-box img:hover {
+            transform: scale(1.02);
         }
 
         .fauna-section .accordion-content-inner {
@@ -2491,7 +2750,7 @@ margin-top: 0.5rem;
             margin: 0 auto 3rem;
         }
 
-        .fauna-intro h3, .fauna-content h3, .flora-content h3, .fauna-footer h3 {
+        .fauna-intro h3, .flora-content h3, .fauna-footer h3 {
             color: var(--azul-oceano);
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -2656,7 +2915,7 @@ margin-top: 0.5rem;
         <div class="section-container">
             <div class="section-header fade-in">
                 <span class="section-number">9</span>
-                <h2 class="section-title">El Valor Estratégico de las Islas Malvinas</h2>
+                <h2 class="section-title">El Valor Estratégico de las islas Malvinas</h2>
             </div>
             <p class="estrategia-intro fade-in">
                 Las Islas Malvinas constituyen un territorio de gran importancia estratégica para la Argentina, no solo por su valor histórico y geográfico, sino también por su relevancia económica, geopolítica y ambiental.
@@ -2732,11 +2991,51 @@ margin-top: 0.5rem;
         </div>
     </section>
 
+    <!-- Ciencia -->
+    <section class="ciencia-section" id="ciencia">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-number">12</span>
+                <h2 class="section-title">Ciencia, memoria e identidad</h2>
+            </div>
+            <div class="ciencia-intro fade-in">
+                <p class="ciencia-quote">"Desde la ciencia se pueden responder preguntas que quedaron abiertas durante décadas"</p>
+            </div>
+            <div class="ciencia-content fade-in">
+                <p>La guerra de Malvinas no solo dejó marcas en la historia reciente de la Argentina, sino también interrogantes profundos para muchas familias. Durante años, numerosos soldados argentinos fueron enterrados sin identificar en el Cementerio Militar de Darwin, bajo la inscripción: "Soldado argentino solo conocido por Dios".</p>
+                <p>Frente a esta realidad, la ciencia se convirtió en una herramienta fundamental para reconstruir la verdad y garantizar un derecho esencial: el derecho a la identidad.</p>
+                
+                <div class="ciencia-box">
+                    <h3>El trabajo del Equipo Argentino de Antropología Forense</h3>
+                    <p>El Equipo Argentino de Antropología Forense (EAAF) ha tenido un rol central en este proceso. A partir de un pedido del Estado argentino en 2012, y con la intermediación de la Cruz Roja Internacional, se inició un proyecto humanitario para identificar a los combatientes enterrados en las islas.</p>
+                    <p>Entre 2017 y 2021, equipos interdisciplinarios de especialistas de Argentina y Gran Bretaña llevaneron adelante misiones forenses en las islas. Allí realizaron exhumaciones, analizaron restos y objetos personales, y tomaron muestras de ADN bajo estrictos protocolos científicos.</p>
+                    <p>Posteriormente, el EAAF cotejó esas muestras con las de familiares en su laboratorio de genética forense en Córdoba.</p>
+                </div>
+                
+                <h3>Restituir la identidad, reparar la historia</h3>
+                <p>Gracias a este trabajo, se logró identificar a la mayoría de los soldados que permanecían sin nombre. En total, se hallaron 122 cuerpos en 121 sepulturas.</p>
+                <p>Uno de los casos más recientes es el del cabo segundo de la Prefectura Naval, Jorge Eduardo López, cuya identidad fue restituida el 30 de junio de 2023. Con este avance, ya son 119 los combatientes argentinos identificados.</p>
+                <p>Cada identificación no es solo un dato científico: es un acto de reparación histórica. Permite a las familias conocer la verdad, rendir homenaje y cerrar, en parte, un largo proceso de incertidumbre.</p>
+                
+                <div class="ciencia-box">
+                    <h3>Un derecho que construye memoria</h3>
+                    <p>La identificación de personas desaparecidas o enterradas sin nombre forma parte del derecho a la identidad, un derecho fundamental en la Argentina. En esta historia, también han sido clave las luchas de organismos como las Abuelas de Plaza de Mayo, que han demostrado la importancia de la memoria, la verdad y la justicia.</p>
+                    <p>El trabajo del EAAF, sostenido durante más de 40 años, une estos valores: ciencia, derechos humanos y memoria colectiva.</p>
+                </div>
+                
+                <h3>Para profundizar</h3>
+                <div class="ciencia-video">
+                    <iframe src="https://drive.google.com/file/d/1OtfG-iIRiwEK_lVhO4fzYRZIjLC12m69/preview" width="100%" height="480" style="border-radius: 15px; max-width: 640px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Ideas Clave -->
     <section class="ideas-section" id="ideas">
         <div class="section-container">
             <div class="section-header fade-in">
-                <span class="section-number">12</span>
+                <span class="section-number">13</span>
                 <h2 class="section-title">Ideas Clave</h2>
                 <p class="section-subtitle">Puntos fundamentales para recordar</p>
             </div>
@@ -2797,17 +3096,12 @@ margin-top: 0.5rem;
                 const content = header.nextElementSibling;
                 const isActive = header.classList.contains('active');
                 
-                if (!isActive) {
-                    document.querySelectorAll('.accordion-header').forEach(h => {
-                        h.classList.remove('active');
-                        h.nextElementSibling.style.maxHeight = '0';
-                    });
-                    
-                    header.classList.add('active');
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                } else {
+                if (isActive) {
                     header.classList.remove('active');
                     content.style.maxHeight = '0';
+                } else {
+                    header.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
                 }
             });
         });
